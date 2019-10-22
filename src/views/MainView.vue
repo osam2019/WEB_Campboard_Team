@@ -1,6 +1,6 @@
 <template>
   <div>
-      <tool-bar>mainview</tool-bar>
+      <tool-bar></tool-bar>
   </div>
 </template>
 
