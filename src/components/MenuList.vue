@@ -1,46 +1,48 @@
 <template>
 <div>
+  <v-card
+    class="mx-auto"
+    width="256"
+    tile
+  >
+  <v-navigation-drawer permanent>
   <section>
     <user-profile></user-profile>
   </section>
   <section>
     <template v-if="type === '분대장'">
-      <ul class="menuList">
-          <li v-for="item in listItems_SL" :key="item.title">
-            <div>
-              <p class="menuTitle">
-                {{ item.title }}
-              </p>
-            </div>
-          </li>
-        </ul>
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group v-model="item" color="primary">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+          >
+            <v-list-item-icon>
+              <v-icon v-text="item.icon"></v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title v-text="item.text"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
     </template>
     <template v-else-if="type === '분대원'">
-      <ul class="menuList">
-          <li v-for="item in listItems_SM" :key="item.title">
-            <div>
-              <router-link class="menuTitle" v-bind:to="`/${item.url}`">
-              {{ item.title }} 
-              </router-link>
-            </div>
-          </li>
-        </ul>
+     
     </template>
     <template v-else-if="type === '간부'">
-      <ul class="menuList">
-          <li v-for="item in listItems_CM" :key="item.title">
-            <div>
-              <p class="menuTitle">
-                {{ item.title }}
-              </p>
-            </div>
-          </li>
-        </ul>
+     
     </template>
     <template v-else>
         외부사람
     </template>  
     </section>
+    </v-navigation-drawer>
+  </v-card>
 </div>
 </template>
 
@@ -51,40 +53,19 @@ export default {
   components: {
       UserProfile,
   },
-  data() {
-    return {
-     type: '분대장',
-     listItems_SL: [
-        {
-          title: "분대장 수첩",
-          url: "SL-diary"
-        },
-       {title: "생활관 게시판"},
-       {title: "생활관 Talk"},
-       {title: "부대 QnA"},
-       {title: "중대근무 일정"},
-       {title: "상벌점 현황"},
-       {title: "마음의 소리함"},
-     ],
-      listItems_SM: [
-       {title: "개인 일지"},
-       {title: "생활관 게시판"},
-       {title: "생활관 Talk"},
-       {title: "부대 QnA"},
-       {title: "중대근무 일정"},
-       {title: "상벌점 현황"},
-       {title: "마음의 소리함"},
-     ],
-      listItems_CM: [
-       {title: "부대일정 관리"},
-       {title: "식단표 관리"},
-       {title: "부대 QnA"},
-       {title: "중대근무 관리"},
-       {title: "상벌점 관리"},
-       {title: "마음의 소리함"},
-     ],
-    };
-  },
+  data: () => ({
+      type: '분대장',
+      item: 0,
+      items: [
+        { text: '분대장 수첩', icon: 'mdi-folder' },
+        { text: '생활관 게시판', icon: 'mdi-account-multiple' },
+        { text: '생활관 Talk', icon: 'mdi-star' },
+        { text: '부대 QnA', icon: 'mdi-history' },
+        { text: '중대근무 일정', icon: 'mdi-check-circle' },
+        { text: '상벌점 현황', icon: 'mdi-upload' },
+        { text: '마음의 소리함', icon: 'mdi-cloud-upload' },
+      ],
+    }),
 }
 </script>
 
