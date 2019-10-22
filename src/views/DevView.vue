@@ -10,7 +10,7 @@
 
 <script>
 import ToolBar from "../components/ToolBar";
-import LeaderNote from "../components/LeaderNote";
+import LeaderNote from "../components/leader-note/LeaderNote";
 
 export default {
   components: { ToolBar, LeaderNote }
