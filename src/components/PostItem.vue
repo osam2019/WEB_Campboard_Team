@@ -1,54 +1,84 @@
 <template>
-<v-card
-    class="mx-auto"
-    color="#8BC34A"
-    dark
-    max-width="400"
-  >
+  <v-card class="mx-auto" color="#8BC34A" dark width="350">
     <v-card-title>
-      <span class="title font-weight-light">SW교육파견 결과 나옴!!</span>
+      <span class="black--text title font-weight-bold">{{ report.title }}</span>
     </v-card-title>
-
-    <v-card-text class="headline font-weight-bold">
-      "Turns out semicolon-less style is easier and safer in TS because most gotcha edge cases are type invalid as well."
-    </v-card-text>
-
+    <v-card-text class="black--text headline font-weight-bold body-1">{{ report.text }}</v-card-text>
     <v-card-actions>
       <v-list-item class="grow">
         <v-list-item-avatar color="grey darken-3">
-          <v-img
-            class="elevation-6"
-            src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-          ></v-img>
+          <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
         </v-list-item-avatar>
-
         <v-list-item-content>
-          <v-list-item-title>Evan You</v-list-item-title>
+          <v-list-item-title class="black--text">{{ report.name }}</v-list-item-title>
         </v-list-item-content>
-
-        <v-row
-          align="center"
-          justify="end"
-        >
-          <v-icon class="mr-1">mdi-heart</v-icon>
-          <span class="subheading mr-2">256</span>
-          <span class="mr-1">·</span>
-          <v-icon class="mr-1">mdi-share-variant</v-icon>
-          <span class="subheading">45</span>
+        <v-row align="center" justify="end">
+          <v-icon class="mr-4" @click="commentListClick">mdi-comment-text-multiple-outline</v-icon>
+          <!-- 댓글 영역 -->
+          <v-icon class="mr-1" @click="pushLike">mdi-heart</v-icon>
+          <span class="subheading mr-2">{{ report.like }}</span>
         </v-row>
       </v-list-item>
     </v-card-actions>
+    <template v-if="commentToggle">
+      <v-list-item
+        style="background: #2E7D32"
+        class="mb-2"
+        v-for="comment in report.comments "
+        :key="comment.id"
+      >
+        <v-list-item-avatar color="grey darken-3">
+          <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+        </v-list-item-avatar>
+        <v-list-item-title class="black--text">{{ comment.name }} : {{ comment.text }}</v-list-item-title>
+      </v-list-item>
+      <section style="background: #2E7D32">
+        <v-list-item style="margin: 10">
+          <v-text-field dense label="name" filled rounded v-model="name" />
+          <v-text-field dense label="Comment" filled rounded v-model="text" />
+        </v-list-item>
+        <v-list-item>
+          <v-btn color="primary" raised @click="addComment">게시하기</v-btn>
+        </v-list-item>
+      </section>
+    </template>
   </v-card>
 </template>
 
 <script>
 export default {
-    data: () => ({
-      //
-    }),
-}
+  props: {
+    id: Number,
+    report: Object,
+    removeReport: Function
+  },
+  data() {
+    return {
+      edit: false,
+      commentToggle: false,
+      name: "",
+      text: ""
+    };
+  },
+  methods: {
+    pushLike() {
+      this.report.like++;
+    },
+    commentListClick() {
+      this.commentToggle = !this.commentToggle;
+    },
+    addComment() {
+      this.report.comments.push({
+        id: this.report.commentId++,
+        name: this.name,
+        text: this.text
+      });
+      this.name = "";
+      this.text = "";
+    }
+  }
+};
 </script>
 
 <style>
-
 </style>
