@@ -1,8 +1,18 @@
 <template>
-<v-content>
+<v-content :elevation="10"         cols="12"
+        sm="6"
+        md="8">
   <v-row>
     <v-col>
-      <v-sheet height="400">
+      <v-btn icon  @click="overlay = !overlay">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+
+      <v-overlay ref="over2" :value="overlay">
+        <add-todo :overlayOfChild="overlay"></add-todo>
+      </v-overlay>
+ 
+         <v-sheet height="400">
         <v-calendar
           ref="calendar"
           :now="today"
@@ -46,10 +56,14 @@
   </template>
 
 <script>
-
+import AddTodo from './AddTodo.vue';
 
   export default {
+    components:{
+      AddTodo,
+    },
     data: () => ({
+      overlay: false,
       today: '2019-01-08',
       events: [
         {
