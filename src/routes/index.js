@@ -41,19 +41,5 @@ export const router = new VueRouter({
       name: "classboard",
       component: ClassBoard
     }
-    // {
-    //     path: '/jobs',
-    //     name: 'jobs',
-    //     // component: JobsView,
-    //     component: createListView('JobSView'),
-    // },
-    // {
-    //     path: '/user/:id',
-    //     component: UserView,
-    // },
-    // {
-    //     path: '/item/:id',
-    //     component: ItemView,
-    // },
   ]
 });

@@ -63,6 +63,12 @@ export default {
     components: {
             'user-login':  UserLogin,
     },
+    data(){
+        return{
+            usernum:'',
+            password:''
+        }
+    }
 }
 </script>
 
