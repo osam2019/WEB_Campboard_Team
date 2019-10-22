@@ -23,9 +23,6 @@
 
 <script>
 export default {
-  props: {
-    addReport: Function
-  },
   data() {
     return {
       name: "",
@@ -34,7 +31,7 @@ export default {
   },
   methods: {
     onPostReport() {
-      this.addReport({
+      this.$store.commit("addReport", {
         date: new Date().toISOString().substring(0, 10),
         name: this.name,
         text: this.text

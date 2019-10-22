@@ -38,9 +38,7 @@
 <script>
 export default {
   props: {
-    id: Number,
-    report: Object,
-    removeReport: Function
+    report: Object
   },
   data() {
     return {
@@ -61,7 +59,7 @@ export default {
       this.toggleEdit();
     },
     onRemove() {
-      this.removeReport({ id: this.report.id });
+      this.$store.commit("removeReport", { id: this.report.id });
     }
   }
 };
