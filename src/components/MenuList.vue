@@ -1,34 +1,3 @@
-<<<<<<< HEAD
- <template>
-<div>
-  <section>
-    <user-profile></user-profile>
-  </section>
-  <section>
-    <template v-if="type === '분대장'">
-      <ul class="menuList">
-          <li class="post">
-          <!-- 포인트 영역 -->
-          <div class="points">
-              {{ "O" }}
-          </div>
-          <!-- 기타 정보 영역 -->
-          <div>
-              <!-- 타이틀 영역 -->
-              <p class="menuTitle">
-                  {{ "분대장 수첩" }}
-              </p>
-            </div>
-            </li>
-        </ul>
-    </template>
-    <template v-else>
-
-    </template>
-      
-    </section>
-</div>
-=======
 <template>
   <div>
     <v-card class="mx-auto" width="256" tile>
@@ -56,7 +25,6 @@
       </section>
     </v-card>
   </div>
->>>>>>> 470f6d09a241994ae778643a5258a01ca339bede
 </template>
 
 <script>
