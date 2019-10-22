@@ -1,12 +1,16 @@
 <template>
   <div>
-      <p>MainView</p>
+      <tool-bar>mainview</tool-bar>
   </div>
 </template>
 
 <script>
-export default {
+import ToolBar from '../components/ToolBar.vue';
 
+export default {
+  components: {
+    ToolBar,
+  },
 }
 </script>
 
