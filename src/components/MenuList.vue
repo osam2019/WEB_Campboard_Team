@@ -1,4 +1,4 @@
-<template>
+ <template>
 <div>
   <section>
     <user-profile></user-profile>
