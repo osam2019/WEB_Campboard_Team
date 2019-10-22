@@ -28,6 +28,11 @@ export default {
     PostItem,
     PostItemField
   },
+  computed: {
+    userName() {
+      return this.$store.state.userName;
+    }
+  },
   data() {
     return {
       addToggle: false,

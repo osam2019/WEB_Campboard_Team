@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" color="#8BC34A" dark width="350">
+  <v-card class="mx-auto" color="#8BC34A" dark width="450">
     <v-card-title>
       <span class="black--text title font-weight-bold">{{ report.title }}</span>
     </v-card-title>
@@ -13,8 +13,13 @@
           <v-list-item-title class="black--text">{{ report.name }}</v-list-item-title>
         </v-list-item-content>
         <v-row align="center" justify="end">
+          <!--  자신이 쓴 글만 수정 권한 부여 -->
+          <template
+            v-if="this.$store.state.userLevel+' '+this.$store.state.userName === report.name"
+          >
+            <v-icon class="mr-4">mdi-square-edit-outline</v-icon>
+          </template>
           <v-icon class="mr-4" @click="commentListClick">mdi-comment-text-multiple-outline</v-icon>
-          <!-- 댓글 영역 -->
           <v-icon class="mr-1" @click="pushLike">mdi-heart</v-icon>
           <span class="subheading mr-2">{{ report.like }}</span>
         </v-row>
@@ -75,6 +80,9 @@ export default {
       });
       this.name = "";
       this.text = "";
+    },
+    userMatchPost() {
+      return false;
     }
   }
 };

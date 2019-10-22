@@ -8,7 +8,11 @@ export default new Vuex.Store({
     reportId: 1,
     squadMateId: 1,
     reports: [],
-    squadMates: []
+    squadMates: [],
+    // 로그인 후 user 정보
+    userName: "조정민",
+    userLevel: "상병",
+    userAuth: "분대장"
   },
   getters: {
     joinSquadMatesAndReport(state) {
