@@ -1,22 +1,25 @@
 <template>
   <div>
-      <tool-bar></tool-bar>
-      <Calander></Calander>
-      <AddTodo></AddTodo>
+    <tool-bar>
+      <template v-slot:main>
+        <div style="position:relative; top:-7%; width: 100%; height:100%">
+          <Calander></Calander>
+        </div>
+      </template>
+    </tool-bar>
   </div>
 </template>
 
 <script>
-import ToolBar from '../components/ToolBar.vue';
-import Calander from '../components/Calander.vue';
-import AddTodo from '../components/AddTodo.vue';
+import ToolBar from "../components/ToolBar.vue";
+import Calander from "../components/Calander.vue";
 export default {
   components: {
-    ToolBar,Calander,AddTodo
-  },
-}
+    ToolBar,
+    Calander
+  }
+};
 </script>
 
 <style>
-
 </style>
