@@ -6,25 +6,40 @@
   <section>
     <template v-if="type === '분대장'">
       <ul class="menuList">
-          <li class="post">
-          <!-- 포인트 영역 -->
-          <div class="points">
-              {{ "O" }}
-          </div>
-          <!-- 기타 정보 영역 -->
-          <div>
-              <!-- 타이틀 영역 -->
+          <li v-for="item in listItems_SL" :key="item.title">
+            <div>
               <p class="menuTitle">
-                  {{ "분대장 수첩" }}
+                {{ item.title }}
               </p>
             </div>
-            </li>
+          </li>
+        </ul>
+    </template>
+    <template v-else-if="type === '분대원'">
+      <ul class="menuList">
+          <li v-for="item in listItems_SM" :key="item.title">
+            <div>
+              <router-link class="menuTitle" v-bind:to="`/${item.url}`">
+              {{ item.title }} 
+              </router-link>
+            </div>
+          </li>
+        </ul>
+    </template>
+    <template v-else-if="type === '간부'">
+      <ul class="menuList">
+          <li v-for="item in listItems_CM" :key="item.title">
+            <div>
+              <p class="menuTitle">
+                {{ item.title }}
+              </p>
+            </div>
+          </li>
         </ul>
     </template>
     <template v-else>
-
-    </template>
-      
+        외부사람
+    </template>  
     </section>
 </div>
 </template>
@@ -39,6 +54,35 @@ export default {
   data() {
     return {
      type: '분대장',
+     listItems_SL: [
+        {
+          title: "분대장 수첩",
+          url: "SL-diary"
+        },
+       {title: "생활관 게시판"},
+       {title: "생활관 Talk"},
+       {title: "부대 QnA"},
+       {title: "중대근무 일정"},
+       {title: "상벌점 현황"},
+       {title: "마음의 소리함"},
+     ],
+      listItems_SM: [
+       {title: "개인 일지"},
+       {title: "생활관 게시판"},
+       {title: "생활관 Talk"},
+       {title: "부대 QnA"},
+       {title: "중대근무 일정"},
+       {title: "상벌점 현황"},
+       {title: "마음의 소리함"},
+     ],
+      listItems_CM: [
+       {title: "부대일정 관리"},
+       {title: "식단표 관리"},
+       {title: "부대 QnA"},
+       {title: "중대근무 관리"},
+       {title: "상벌점 관리"},
+       {title: "마음의 소리함"},
+     ],
     };
   },
 }
@@ -49,22 +93,14 @@ export default {
   margin: 0;
   padding: 0;
 }
-.post {
-  list-style: none; 
-  display: flex;
-  align-items: center;
-  border: 1px solid #eee;
-}
-.points {
-  width: 80px;
+
+
+.menuTitle {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #42b883;
-}
-.menuTitle {
   margin: 0;
+  border: 1px solid #eee;
 }
 .link-text {
   color: #828282;
