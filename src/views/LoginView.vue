@@ -40,7 +40,11 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                  <router-link to="/mainview" >
+                    <v-btn color="primary">
+                    Login
+                    </v-btn>
+                  </router-link>
               </v-card-actions>
             </v-card>
           </v-col>

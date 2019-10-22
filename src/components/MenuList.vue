@@ -1,47 +1,52 @@
 <template>
-<div>
-  <section>
-    <user-profile></user-profile>
-  </section>
-  <section>
-    <template v-if="type === '분대장'">
-      <ul class="menuList">
-          <li class="post">
-          <!-- 포인트 영역 -->
-          <div class="points">
-              {{ "O" }}
-          </div>
-          <!-- 기타 정보 영역 -->
-          <div>
-              <!-- 타이틀 영역 -->
-              <p class="menuTitle">
-                  {{ "분대장 수첩" }}
-              </p>
-            </div>
-            </li>
-        </ul>
-    </template>
-    <template v-else>
-
-    </template>
-      
-    </section>
-</div>
+  <div>
+    <v-card class="mx-auto" width="256" tile>
+      <section>
+        <user-profile></user-profile>
+      </section>
+      <section>
+        <template v-if="type === '분대장'">
+          <v-list nav dense>
+            <v-list-item-group v-model="item" color="primary">
+              <v-list-item v-for="(item, i) in items" :key="i">
+                <v-list-item-icon>
+                  <v-icon v-text="item.icon"></v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </template>
+        <template v-else-if="type === '분대원'"></template>
+        <template v-else-if="type === '간부'"></template>
+        <template v-else>외부사람</template>
+      </section>
+    </v-card>
+  </div>
 </template>
 
 <script>
-import UserProfile from './UserProfile.vue';
+import UserProfile from "./UserProfile.vue";
 
 export default {
   components: {
-      UserProfile,
+    UserProfile
   },
-  data() {
-    return {
-     type: '분대장',
-    };
-  },
-}
+  data: () => ({
+    type: "분대장",
+    items: [
+      { text: "분대장 수첩", icon: "mdi-folder" },
+      { text: "생활관 게시판", icon: "mdi-account-multiple" },
+      { text: "생활관 Talk", icon: "mdi-star" },
+      { text: "부대 QnA", icon: "mdi-history" },
+      { text: "중대근무 일정", icon: "mdi-check-circle" },
+      { text: "상벌점 현황", icon: "mdi-upload" },
+      { text: "마음의 소리함", icon: "mdi-cloud-upload" }
+    ]
+  })
+};
 </script>
 
 <style>
@@ -49,22 +54,13 @@ export default {
   margin: 0;
   padding: 0;
 }
-.post {
-  list-style: none; 
-  display: flex;
-  align-items: center;
-  border: 1px solid #eee;
-}
-.points {
-  width: 80px;
+
+.menuTitle {
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #42b883;
-}
-.menuTitle {
   margin: 0;
+  border: 1px solid #eee;
 }
 .link-text {
   color: #828282;

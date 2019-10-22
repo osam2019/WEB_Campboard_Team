@@ -1,13 +1,19 @@
 <template>
   <div>
-    <basic-layout></basic-layout>
+    <tool-bar>
+      <template v-slot:main>
+        <leader-note-list></leader-note-list>
+      </template>
+    </tool-bar>
   </div>
 </template>
 
 <script>
-import BasicLayout from "../components/layouts/BasicLayout";
+import ToolBar from "../components/ToolBar";
+import LeaderNoteList from "../components/LeaderNoteList";
+
 export default {
-  components: { BasicLayout }
+  components: { ToolBar, LeaderNoteList }
 };
 </script>
 

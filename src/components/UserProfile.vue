@@ -1,8 +1,11 @@
 <template>
   <div class="user-container">
-    <div>
-        <i class="fas fa-user"></i>
-    </div>
+    <v-list-item>
+        <v-list-item-avatar>
+        <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+        </v-list-item-avatar>
+    </v-list-item>
+
     <div class="user-description">
         <!-- <div>
             계급, 호봉, 이름: {{ info.id }}
@@ -25,8 +28,8 @@
         <!-- <router-link :to="`/user/${userInfo.user}`">
             {{ userInfo.id }}
         </router-link> -->
-   
-        </div>
+    </div>
+         <v-divider></v-divider>
     </div>
 </template>
 
@@ -38,16 +41,14 @@ export default {
 
 <style scoped>
 .user-container {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    font-size: 3px;
+    font-size: 15px;
 }
-.fa-user {
-    font-size: 3rem;
+.v-list-item {
+    display: inline-block;
 }
 .user-description {
     padding-left: 15px;
+    display: inline-block;
 }
 
 </style>

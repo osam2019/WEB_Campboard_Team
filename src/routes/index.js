@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import LoginView from "../views/LoginView.vue";
 import MainView from "../views/MainView.vue";
+import SlDiary from "../views/SlDiary.vue";
+import TestView from "../views/TestView.vue";
 import DevView from "../views/DevView.vue";
 
 Vue.use(VueRouter);
@@ -33,6 +35,17 @@ export const router = new VueRouter({
       name: "devview",
       // component: AskView,
       component: DevView
+    },
+    {
+      path: "/mainview/SL-diary",
+      name: "SL-diary",
+      // component: AskView,
+      component: SlDiary
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: TestView
     }
     // {
     //     path: '/jobs',
