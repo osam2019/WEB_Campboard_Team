@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <v-app class="header">
         <!-- Tool-Bar 중앙 및 왼쪽 메뉴버튼 부분 -->
         <v-app-bar
         app
@@ -27,26 +27,24 @@
             </v-list-item>
         </v-list>
         </v-navigation-drawer>
-
-        <!-- left 이 아래 부분 무슨기능하는거지? -->
-        <v-navigation-drawer
-            v-model="left"
-            fixed
-            temporary
-        ></v-navigation-drawer>
-
+        <!-- Main -->
+        <v-content>
+            <v-container class="d-flex flex-column align-items-flex-start fill-height">
+                <slot name="main"></slot>
+            </v-container>
+        </v-content>
         <!-- Footer -->
         <v-footer
         app
-        color="blue-grey"
+        color="teal"
         class="white--text"
         >
-            <span>developer: 박경필, 주경진</span>
+            <span>developer: 박경필, 주경진, 정영훈</span>
             <v-spacer></v-spacer>
             <span>&copy; 2019</span>
         </v-footer>
 
-  </div>
+  </v-app>
 </template>
 <script>
 import MenuList from './MenuList.vue';
@@ -57,7 +55,6 @@ export default {
     },
     data: () => ({
         drawer: null,
-        left: false,
         
     }),
 }

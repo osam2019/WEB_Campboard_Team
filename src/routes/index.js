@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import LoginView from '../views/LoginView.vue';
 import MainView from '../views/MainView.vue';
 import SlDiary from '../views/SlDiary.vue'; 
-import TestView from '../views/TestView.vue';
+import BarrackBoard from '../views/BarrackBoard.vue';
 
 Vue.use(VueRouter);
 
@@ -36,9 +36,9 @@ export const router = new VueRouter({
             component: SlDiary
         },
         {
-            path: '/test',
-            name: 'test',
-            component: TestView,
+            path: '/barrackboard',
+            name: 'barrackboard',
+            component: BarrackBoard,
         },
         // {
         //     path: '/jobs',

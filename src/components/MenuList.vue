@@ -5,7 +5,7 @@
     width="256"
     tile
   >
-  <v-navigation-drawer permanent>
+  
   <section>
     <user-profile></user-profile>
   </section>
@@ -23,9 +23,10 @@
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
-
             <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
+              <router-link :to="`/${item.url}`"> 
+                <v-list-item-title v-text="item.text"></v-list-item-title>
+              </router-link>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -41,7 +42,6 @@
         외부사람
     </template>  
     </section>
-    </v-navigation-drawer>
   </v-card>
 </div>
 </template>
@@ -58,7 +58,7 @@ export default {
       item: 0,
       items: [
         { text: '분대장 수첩', icon: 'mdi-folder' },
-        { text: '생활관 게시판', icon: 'mdi-account-multiple' },
+        { text: '생활관 게시판', icon: 'mdi-account-multiple', url: '/barrackboard'  },
         { text: '생활관 Talk', icon: 'mdi-star' },
         { text: '부대 QnA', icon: 'mdi-history' },
         { text: '중대근무 일정', icon: 'mdi-check-circle' },
