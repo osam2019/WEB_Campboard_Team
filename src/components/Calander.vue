@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <v-content sm="6" md="8">
     <v-row>
       <v-spacer></v-spacer>
@@ -13,19 +12,6 @@
         <v-col class="mb-10">
           <add-todo v-show="display" :addEvent="sendInfo"></add-todo>
         </v-col>
-=======
-  <v-content :elevation="10" cols="12" sm="6" md="8">
-    <v-row>
-      <v-col>
-        <v-btn icon @click="overlay = !overlay">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-
-        <v-overlay ref="over2" :value="overlay">
-          <add-todo :overlayOfChild="overlay"></add-todo>
-        </v-overlay>
-
->>>>>>> ac872b39bc1bea57b210c4277af024384d11e01b
         <v-sheet height="400">
           <v-calendar
             ref="calendar"
@@ -43,11 +29,7 @@
                   v-if="!event.time"
                   :key="event.title"
                   class="my-event"
-<<<<<<< HEAD
-                  @click="test()"
-=======
                   @click="open(event)"
->>>>>>> ac872b39bc1bea57b210c4277af024384d11e01b
                   v-html="event.title"
                 ></div>
               </template>
@@ -61,11 +43,7 @@
                   :key="event.title"
                   :style="{ top: timeToY(event.time) + 'px', height: minutesToPixels(event.duration) + 'px' }"
                   class="my-event with-time"
-<<<<<<< HEAD
-                  @click="test()"
-=======
                   @click="open(event)"
->>>>>>> ac872b39bc1bea57b210c4277af024384d11e01b
                   v-html="event.title"
                 ></div>
               </template>
@@ -73,17 +51,13 @@
           </v-calendar>
         </v-sheet>
       </v-col>
-<<<<<<< HEAD
       <v-spacer></v-spacer>
-=======
->>>>>>> ac872b39bc1bea57b210c4277af024384d11e01b
     </v-row>
   </v-content>
 </template>
 
 <script>
 import AddTodo from "./AddTodo.vue";
-<<<<<<< HEAD
 
 export default {
   components: {
@@ -144,38 +118,6 @@ export default {
       this.display = false;
     }
   },
-=======
-
-export default {
-  components: {
-    AddTodo
-  },
-  data: () => ({
-    overlay: false,
-    today: "2019-01-08",
-    events: [
-      {
-        name: "Weekly Meeting",
-        start: "2019-01-07 09:00",
-        end: "2019-01-07 10:00"
-      },
-      {
-        name: "훈련",
-        start: "2019-01-08 09:00",
-        end: "2019-01-08 10:00"
-      },
-      {
-        name: "Thomas' Birthday",
-        start: "2019-01-10"
-      },
-      {
-        name: "Mash Potatoes",
-        start: "2019-01-09 12:30",
-        end: "2019-01-09 15:30"
-      }
-    ]
-  }),
->>>>>>> ac872b39bc1bea57b210c4277af024384d11e01b
   mounted() {
     this.$refs.calendar.scrollToTime("08:00");
   }

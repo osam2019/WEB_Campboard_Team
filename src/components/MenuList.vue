@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> ac872b39bc1bea57b210c4277af024384d11e01b
 <template>
   <div>
     <v-card class="mx-auto" width="256" tile>
