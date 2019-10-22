@@ -1,54 +1,49 @@
 <template>
   <div class="user-container">
     <v-list-item>
-        <v-list-item-avatar>
+      <v-list-item-avatar>
         <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
-        </v-list-item-avatar>
+      </v-list-item-avatar>
     </v-list-item>
 
     <div class="user-description">
-        <!-- <div>
+      <!-- <div>
             계급, 호봉, 이름: {{ info.id }}
-        </div> -->
-        <div>
-            {{ "상병(4) 강민석" }}
-        </div>
-        <div>     
-            <!-- 소속: {{ info.created }} -->
-            {{ "작전지원중대" }}
-        </div>
-        <div>     
-            <!-- 소속: {{ info.created }} -->
-            {{ "1소대 5생활관" }}
-        </div>
-        <div>     
-            <!-- 소속: {{ info.created }} -->
-            {{ "분대장" }}
-        </div>
-        <!-- <router-link :to="`/user/${userInfo.user}`">
+      </div>-->
+      <div>{{ "상병(4) 강민석" }}</div>
+      <div>
+        <!-- 소속: {{ info.created }} -->
+        {{ "작전지원중대" }}
+      </div>
+      <div>
+        <!-- 소속: {{ info.created }} -->
+        {{ "1소대 5생활관" }}
+      </div>
+      <div>
+        <!-- 소속: {{ info.created }} -->
+        {{ "분대장" }}
+      </div>
+      <!-- <router-link :to="`/user/${userInfo.user}`">
             {{ userInfo.id }}
-        </router-link> -->
+      </router-link>-->
     </div>
-         <v-divider></v-divider>
-    </div>
+    <v-divider></v-divider>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
 .user-container {
-    font-size: 15px;
+  font-size: 15px;
 }
 .v-list-item {
-    display: inline-block;
+  display: inline-block;
 }
 .user-description {
-    padding-left: 15px;
-    display: inline-block;
+  padding-left: 15px;
+  display: inline-block;
 }
-
 </style>

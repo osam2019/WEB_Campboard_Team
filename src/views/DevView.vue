@@ -2,7 +2,7 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <leader-note-list></leader-note-list>
+        <leader-note />
       </template>
     </tool-bar>
   </div>
@@ -10,10 +10,10 @@
 
 <script>
 import ToolBar from "../components/ToolBar";
-import LeaderNoteList from "../components/LeaderNoteList";
+import LeaderNote from "../components/leader-note/LeaderNote";
 
 export default {
-  components: { ToolBar, LeaderNoteList }
+  components: { ToolBar, LeaderNote }
 };
 </script>
 
