@@ -4,21 +4,27 @@
     <user-profile></user-profile>
   </section>
   <section>
+    <template v-if="type === '분대장'">
       <ul class="menuList">
-        <li class="post">
-        <!-- 포인트 영역 -->
-        <div class="points">
-            {{ "O" }}
-        </div>
-        <!-- 기타 정보 영역 -->
-        <div>
-            <!-- 타이틀 영역 -->
-            <p class="menuTitle">
-                {{ "분대장 수첩" }}
-            </p>
+          <li class="post">
+          <!-- 포인트 영역 -->
+          <div class="points">
+              {{ "O" }}
           </div>
-          </li>
-      </ul>
+          <!-- 기타 정보 영역 -->
+          <div>
+              <!-- 타이틀 영역 -->
+              <p class="menuTitle">
+                  {{ "분대장 수첩" }}
+              </p>
+            </div>
+            </li>
+        </ul>
+    </template>
+    <template v-else>
+
+    </template>
+      
     </section>
 </div>
 </template>
@@ -29,7 +35,12 @@ import UserProfile from './UserProfile.vue';
 export default {
   components: {
       UserProfile,
-  }
+  },
+  data() {
+    return {
+     type: '분대장',
+    };
+  },
 }
 </script>
 
