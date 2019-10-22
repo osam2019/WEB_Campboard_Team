@@ -1,55 +1,67 @@
 <template>
   <div class="header">
-        <v-navigation-drawer
-        v-model="drawerRight"
-        app
-        clipped
-        right
-        >
-        <v-list dense>
-            <v-list-item @click.stop="right = !right">
-            <v-list-item-action>
-                <v-icon>mdi-exit-to-app</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-                <v-list-item-title>Open Temporary Drawer</v-list-item-title>
-            </v-list-item-content>
-            </v-list-item>
-        </v-list>
-        </v-navigation-drawer>
+        <!-- Tool-Bar 중앙 및 왼쪽 메뉴버튼 부분 -->
         <v-app-bar
         app
         clipped-right
-        color="blue-grey"
+        color="teal"
         dark
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title>Toolbar</v-toolbar-title>
+            <v-toolbar-title>CampBoard</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight"></v-app-bar-nav-icon>
         </v-app-bar>
+            <v-navigation-drawer
+            v-model="drawer"
+           
+            app
+        >
+        <!-- 왼쪽 menu drawer -->
+        <v-list dense >
+            <v-list-item >
+                <v-list-item-content >
+                    <!-- MenuList component view -->
+                    <menu-list></menu-list>
+                </v-list-item-content>
+            </v-list-item>
+        </v-list>
+        </v-navigation-drawer>
+        <!-- left 이 아래 부분 무슨기능하는거지? -->
+        <v-navigation-drawer
+            v-model="left"
+            fixed
+            temporary
+        ></v-navigation-drawer>
+       <!-- list -->
+
+        <!-- Footer -->
+        <v-footer
+        app
+        color="blue-grey"
+        class="white--text"
+        >
+            <span>developer: 박경필, 주경진</span>
+            <v-spacer></v-spacer>
+            <span>&copy; 2019</span>
+        </v-footer>
 
   </div>
 </template>
 <script>
+import MenuList from './MenuList.vue';
+
 export default {
+    components: {
+        MenuList,
+    },
     data: () => ({
-        drawerRight: null,
+        drawer: null,
+        left: false,
+        
     }),
 }
 </script>
 
 <style scoped>
-.header {
-    color: white;
-    background-color: #42b883;
-    display: flex;
-    padding: 8px;
-}
-/* .header .router-link-exact-active {
-    color: #35495e;
-} */
-/* .header a {
-    color: white;
-} */
+
 </style>
