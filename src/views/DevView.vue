@@ -2,7 +2,7 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <leader-note />
+        <point-table />
       </template>
     </tool-bar>
   </div>
@@ -10,10 +10,10 @@
 
 <script>
 import ToolBar from "../components/ToolBar";
-import LeaderNote from "../components/leader-note/LeaderNote";
+import PointTable from "../components/point-board/PointTable";
 
 export default {
-  components: { ToolBar, LeaderNote }
+  components: { ToolBar, PointTable }
 };
 </script>
 

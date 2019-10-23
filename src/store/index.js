@@ -8,7 +8,118 @@ export default new Vuex.Store({
     reportId: 1,
     squadMateId: 1,
     reports: [],
-    squadMates: []
+    squadMates: [],
+
+    pointData: [
+      {
+        id: 1,
+        rank: "병장",
+        name: "정영훈",
+        award: 45,
+        penalty: 5,
+        monthlyAward: 10,
+        monthlyPenalty: 1,
+        usedAward: 240
+      },
+      {
+        id: 2,
+        rank: "상병",
+        name: "홍길동",
+        award: 30,
+        penalty: 2,
+        monthlyAward: 4,
+        monthlyPenalty: 1,
+        usedAward: 180
+      },
+      {
+        id: 3,
+        rank: "이병",
+        name: "김이병",
+        award: 4,
+        penalty: 0,
+        monthlyAward: 1,
+        monthlyPenalty: 0,
+        usedAward: 15
+      },
+      {
+        id: 4,
+        rank: "일병",
+        name: "박일병",
+        award: 10,
+        penalty: 4,
+        monthlyAward: 1,
+        monthlyPenalty: 0,
+        usedAward: 30
+      }
+    ],
+    headers: [
+      { text: "계급", value: "rank" },
+      { text: "이름", value: "name" },
+      { text: "상점", value: "award" },
+      { text: "벌점", value: "penalty" },
+      { text: "월간 상점", value: "monthlyAward" },
+      { text: "월간 벌점", value: "monthlyPenalty" },
+      { text: "사용 상점", value: "usedAward" }
+    ],
+    logTableData: {
+      id: 1,
+      logs: [
+        {
+          id: 1,
+          giverRank: "대위",
+          giverName: "김재명",
+          date: "2019-10-21",
+          point: "5",
+          reason: "일과 시간 외 배수구 작업"
+        },
+        {
+          id: 2,
+          giverRank: "상사",
+          giverName: "정민규",
+          date: "2019-10-10",
+          point: "2",
+          reason: "소대 축구 대회 우승"
+        },
+        {
+          id: 3,
+          giverRank: "대위",
+          giverName: "김재명",
+          date: "2019-10-01",
+          point: "1",
+          reason: "국군의 날 행사 도우미"
+        },
+        {
+          id: 4,
+          giverRank: "상사",
+          giverName: "박장서",
+          date: "2019-09-24",
+          point: "-2",
+          reason: "아침점호 지각"
+        }
+      ]
+    },
+    logTableHeaders: [
+      {
+        text: "수여자 계급",
+        value: "giverRank"
+      },
+      {
+        text: "수여자 이름",
+        value: "giverName"
+      },
+      {
+        text: "수여 날짜",
+        value: "date"
+      },
+      {
+        text: "점수",
+        value: "point"
+      },
+      {
+        text: "사유",
+        value: "reason"
+      }
+    ]
   },
   getters: {
     joinSquadMatesAndReport(state) {

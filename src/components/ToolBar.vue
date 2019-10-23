@@ -27,7 +27,7 @@
 
     <!-- Footer -->
     <v-footer app color="primary" class="white--text">
-      <span>developer: 박경필, 주경진</span>
+      <span>developer: 박경필, 주경진, 정영훈</span>
       <v-spacer></v-spacer>
       <span>&copy; 2019</span>
     </v-footer>
