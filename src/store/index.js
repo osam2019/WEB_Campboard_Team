@@ -10,7 +10,7 @@ export default new Vuex.Store({
     reports: [],
     squadMates: [],
     // 로그인 후 user 정보
-    userName: "조정민",
+    userName: "강민석",
     userLevel: "상병",
     userAuth: "분대장"
   },
