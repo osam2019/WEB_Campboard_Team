@@ -21,7 +21,6 @@
             <template v-if="account.rank+' '+account.name === report.name">
               <v-icon class="mr-4" @click="postEditToggle">mdi-square-edit-outline</v-icon>
             </template>
-
             <v-icon class="mr-4" @click="commentListClick">mdi-comment-text-multiple-outline</v-icon>
             <!-- 좋아요 버튼 -->
             <!-- 좋아요 누르기전 -->
@@ -36,7 +35,6 @@
                 <v-icon @click="pushLike">mdi-thumb-up</v-icon>
               </v-btn>
             </template>
-
             <span class="subheading mr-2">{{ report.like }}</span>
           </v-row>
         </v-list-item>
@@ -96,13 +94,15 @@ export default {
       edit: false,
       commentToggle: false,
       likeToggle: false,
-      name: this.account.rank + " " + this.account.name,
       title: this.report.title,
       text: this.report.text,
       word: ""
     };
   },
   computed: {
+    name() {
+      return this.account.rank + " " + this.account.name;
+    },
     account() {
       return this.$store.state.account;
     }
@@ -128,9 +128,9 @@ export default {
       });
       this.word = "";
     },
-    userMatchPost() {
-      return false;
-    },
+    // userMatchPost() {
+    //   return false;
+    // },
     postEditToggle() {
       this.edit = !this.edit;
       if (this.commentToggle) {

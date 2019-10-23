@@ -2,22 +2,8 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <v-container class="fill-height" style="width: 100%;">
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-col cols="8" class="mb-12">
-              <Calander></Calander>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-col cols="8">
-              <FoodCalendar></FoodCalendar>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
-        </v-container>
+        <Calander></Calander>
+        <FoodCalendar></FoodCalendar>
       </template>
     </tool-bar>
   </div>
@@ -25,8 +11,8 @@
 
 <script>
 import ToolBar from "../components/ToolBar.vue";
-import Calander from "../components/Calendar/Calendar.vue";
-import FoodCalendar from "../components/Calendar/FoodCalendar.vue";
+import Calander from "../components/mainShow/Calendar.vue";
+import FoodCalendar from "../components/mainShow/FoodCalendar.vue";
 export default {
   components: {
     ToolBar,

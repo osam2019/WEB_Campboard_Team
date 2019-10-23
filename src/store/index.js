@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     account: {
-      userType: "간부",
+      userType: "분대장",
       rank: "상병",
       name: "강민석",
       regiment: "작전지원중대",
@@ -133,7 +133,57 @@ export default new Vuex.Store({
         text: "사유",
         value: "reason"
       }
-    ]
+    ],
+    // QuestionVuew, ClasBoard에 쓰일 내용들
+    postList: {
+      reportId: 4,
+      reports: [
+        {
+          id: 1,
+          contentToggle: false,
+          commentID: 3,
+          date: "2019-10-22",
+          title: "첫번째 질문",
+          name: "병장 정영훈",
+          text: "OSAM 캠프 참여 실시 날짜는 언제죠?",
+          like: "24",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
+        },
+        {
+          id: 2,
+          contentToggle: false,
+
+          commentID: 3,
+          date: "2019-10-23",
+          title: "두번째 질문입니다",
+          name: "상병 강민석",
+          text: "OSAM 캠프 참여 실시",
+          like: "22",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
+        },
+        {
+          id: 3,
+          contentToggle: false,
+
+          commentID: 3,
+          date: "2019-10-24",
+          title: "세번째 질문입니다",
+          name: "상병 조정민",
+          text: "OSAM 캠프 참여 실시",
+          like: "20",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
+        }
+      ]
+    }
   },
   getters: {
     joinSquadMatesAndReport(state) {

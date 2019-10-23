@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 70%">
     <v-btn color="primary" class="ma-2" @click="toggle">
       <v-icon>mdi-plus</v-icon>
     </v-btn>
