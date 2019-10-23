@@ -6,6 +6,7 @@ import ClassBoard from "../views/ClassBoard.vue";
 import DevView from "../views/DevView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
+import HeartLetter from "../views/HeartLetter.vue";
 
 Vue.use(VueRouter);
 
@@ -50,6 +51,10 @@ export const router = new VueRouter({
     {
       path: "/questionboard/:id",
       component: QuestionView
+    },
+    {
+      path: "/heartletter/",
+      component: HeartLetter
     }
   ]
 });
