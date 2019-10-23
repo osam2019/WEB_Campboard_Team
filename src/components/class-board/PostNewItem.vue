@@ -50,6 +50,11 @@ export default {
       text: ""
     };
   },
+  computd: {
+    account() {
+      return this.$store.state.account;
+    }
+  },
   methods: {
     closeField() {
       this.toggle();
@@ -62,7 +67,7 @@ export default {
         title: this.title,
         text: this.text,
         like: "0",
-        name: this.$store.state.userLevel + " " + this.$store.state.userName
+        name: this.account.rank + " " + this.account.rank.name
       });
       this.title = "";
       this.text = "";

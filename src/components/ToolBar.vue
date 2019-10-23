@@ -6,16 +6,10 @@
       <v-toolbar-title>CampBoard</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer class="pa-2" v-model="drawer" app>
       <!-- 왼쪽 menu drawer -->
-      <v-list dense>
-        <v-list-item>
-          <v-list-item-content>
-            <!-- MenuList component view -->
-            <menu-list></menu-list>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <!-- MenuList component view -->
+      <menu-list></menu-list>
     </v-navigation-drawer>
 
     <!-- Main -->
@@ -41,7 +35,7 @@ export default {
     MenuList
   },
   data: () => ({
-    drawer: true
+    drawer: false
   })
 };
 </script>
