@@ -2,10 +2,22 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <div style="position:relative; top:-7%; width: 100%; height:100%">
-          <Calander></Calander>
-          <FoodCalendar></FoodCalendar>
-        </div>
+        <v-container class="fill-height" style="position:relative; top:0%; width: 100%;">
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col cols="8" class="mb-12">
+              <Calander></Calander>
+            </v-col>
+            <v-spacer></v-spacer>
+          </v-row>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col cols="8">
+              <FoodCalendar></FoodCalendar>
+            </v-col>
+            <v-spacer></v-spacer>
+          </v-row>
+        </v-container>
       </template>
     </tool-bar>
   </div>

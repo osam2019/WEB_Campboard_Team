@@ -7,7 +7,7 @@
       <section>
         <template v-if="type === '분대장'">
           <v-list nav dense>
-            <v-list-item-group v-model="item" color="primary">
+            <v-list-item-group color="primary">
               <v-list-item v-for="(item, i) in items" :key="i">
                 <v-list-item-icon>
                   <v-icon v-text="item.icon"></v-icon>

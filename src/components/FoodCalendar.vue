@@ -1,9 +1,15 @@
 <template>
-  <v-sheet height="500">
-    <v-calendar type="month" now="2019-10-23" value="2019-01-08" :events="events"></v-calendar>
-  </v-sheet>
+  <v-card height="500px" class="mb-12">
+    <h1 class="teal darken-2 white--text text-center display-1 pa-3" style="border-radius: 10px">식단표</h1>
+    <v-calendar type="month" now="2019-10-23" value="2019-10-23" :events="events" ></v-calendar>
+  </v-card>
 </template>
 
+<style>
+  .v-calendar .v-event.v-event-end {
+    height:50px !important;
+  }
+</style>
 <script>
 export default {
   data: () => ({

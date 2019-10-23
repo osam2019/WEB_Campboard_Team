@@ -1,15 +1,17 @@
 <template>
   <div>
-    <v-menu transition="scroll-y-transition">
-      <span>일정 등록하기</span>
+    <v-menu leave-absolute="true" transition="slide-y-transition">
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" class="ma-2" v-on="on">
+        <v-btn color="primary" class="ma-2" v-on="on" @click="toggle">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
+        <span>일정 등록하기</span>
       </template>
-      <add-todo :addEvent="sendInfo"></add-todo>
-    </v-menu>
 
+      <v-col class="mb-12">
+        <add-todo v-show="display" :addEvent="sendInfo"></add-todo>
+      </v-col>
+    </v-menu>
     <h1
       class="teal darken-2 white--text text-center display-1 pa-3"
       style="border-radius: 10px"
@@ -22,30 +24,30 @@
         :events="events"
         color="primary"
         type="week"
+        event-overlap-threshold="30"
         event-color="primary"
-        @click:time="remove(event)"
+        @click:time="test()"
       >
         <!-- the events at the top (all-day) -->
         <template v-slot:day-header="{ date }">
-          <template v-for="event in eventsMap[date]">
+          <template v-for="event in events[date]">
             <!-- all day events don't have time -->
             <div v-if="!event.time" :key="event.title" class="my-event" v-html="event.title"></div>
           </template>
         </template>
         <!-- the events at the bottom (timed) -->
         <template v-slot:day-body="{ date, timeToY, minutesToPixels }">
-          <div
-            v-for="(event, index) in  eventsMap[date]"
-            @click="remove(event)"
-            :key="index"
-            class="my-event with-time"
-          >
+          <template v-for="(event, index) in events[date]">
             <!-- timed events -->
-            <!-- <div
-              
+            <div
+              v-if="event.time"
+              :key="index"
+              :style="{ top: timeToY(event.time) + 'px', height: minutesToPixels(event.duration) + 'px' }"
+              class="my-event with-time"
+              @click="open(event)"
               v-html="event.title"
-            ></div>-->
-          </div>
+            ></div>
+          </template>
         </template>
       </v-calendar>
     </v-sheet>
@@ -83,9 +85,6 @@ export default {
     info: {}
   }),
   methods: {
-    remove(index) {
-      console.log(index);
-    },
     test() {
       console.log(this.events);
       console.log(this);

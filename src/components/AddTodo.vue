@@ -1,6 +1,6 @@
 <template>
   <v-form ref="form" lazy-validation>
-    <v-container>
+    <v-container style="background:white">
       <v-text-field v-model="name" label="일정내용" outlined shaped></v-text-field>
       <v-row>
         <v-col :key="1">
@@ -15,7 +15,7 @@
       </v-row>
     </v-container>
 
-    <v-btn @click="addEvent(name,date,start,end)">Submit</v-btn>
+    <v-btn @click="addEvent(name,date,start,end)" color="primary">Submit</v-btn>
   </v-form>
 </template>
 
