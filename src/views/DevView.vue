@@ -2,7 +2,7 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <point-table />
+        <vacation-calendar />
       </template>
     </tool-bar>
   </div>
@@ -10,10 +10,10 @@
 
 <script>
 import ToolBar from "../components/ToolBar";
-import PointTable from "../components/point-board/PointTable";
+import VacationCalendar from "../components/vacation/VacationCalendar";
 
 export default {
-  components: { ToolBar, PointTable }
+  components: { ToolBar, VacationCalendar }
 };
 </script>
 
