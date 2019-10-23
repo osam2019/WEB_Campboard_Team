@@ -18,10 +18,172 @@ export default new Vuex.Store({
     squadMateId: 1,
     reports: [],
     squadMates: [],
+
     // 로그인 후 user 정보
     userName: "강민석",
     userLevel: "상병",
-    userAuth: "분대장"
+    userAuth: "분대장",
+
+    pointData: [
+      {
+        id: 1,
+        rank: "병장",
+        name: "정영훈",
+        award: 45,
+        penalty: 5,
+        monthlyAward: 10,
+        monthlyPenalty: 1,
+        usedAward: 240
+      },
+      {
+        id: 2,
+        rank: "상병",
+        name: "홍길동",
+        award: 30,
+        penalty: 2,
+        monthlyAward: 4,
+        monthlyPenalty: 1,
+        usedAward: 180
+      },
+      {
+        id: 3,
+        rank: "이병",
+        name: "김이병",
+        award: 4,
+        penalty: 0,
+        monthlyAward: 1,
+        monthlyPenalty: 0,
+        usedAward: 15
+      },
+      {
+        id: 4,
+        rank: "일병",
+        name: "박일병",
+        award: 10,
+        penalty: 4,
+        monthlyAward: 1,
+        monthlyPenalty: 0,
+        usedAward: 30
+      }
+    ],
+    headers: [
+      { text: "계급", value: "rank" },
+      { text: "이름", value: "name" },
+      { text: "상점", value: "award" },
+      { text: "벌점", value: "penalty" },
+      { text: "월간 상점", value: "monthlyAward" },
+      { text: "월간 벌점", value: "monthlyPenalty" },
+      { text: "사용 상점", value: "usedAward" }
+    ],
+    logTableData: {
+      id: 1,
+      logs: [
+        {
+          id: 1,
+          giverRank: "대위",
+          giverName: "김재명",
+          date: "2019-10-21",
+          point: "5",
+          reason: "일과 시간 외 배수구 작업"
+        },
+        {
+          id: 2,
+          giverRank: "상사",
+          giverName: "정민규",
+          date: "2019-10-10",
+          point: "2",
+          reason: "소대 축구 대회 우승"
+        },
+        {
+          id: 3,
+          giverRank: "대위",
+          giverName: "김재명",
+          date: "2019-10-01",
+          point: "1",
+          reason: "국군의 날 행사 도우미"
+        },
+        {
+          id: 4,
+          giverRank: "상사",
+          giverName: "박장서",
+          date: "2019-09-24",
+          point: "-2",
+          reason: "아침점호 지각"
+        }
+      ]
+    },
+    logTableHeaders: [
+      {
+        text: "수여자 계급",
+        value: "giverRank"
+      },
+      {
+        text: "수여자 이름",
+        value: "giverName"
+      },
+      {
+        text: "수여 날짜",
+        value: "date"
+      },
+      {
+        text: "점수",
+        value: "point"
+      },
+      {
+        text: "사유",
+        value: "reason"
+      }
+    ],
+    // QuestionVuew, ClasBoard에 쓰일 내용들
+    postList: {
+      reportId: 4,
+      reports: [
+        {
+          id: 1,
+          contentToggle: false,
+          commentID: 3,
+          date: "2019-10-22",
+          title: "첫번째 질문",
+          name: "병장 정영훈",
+          text: "OSAM 캠프 참여 실시 날짜는 언제죠?",
+          like: "24",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
+        },
+        {
+          id: 2,
+          contentToggle: false,
+
+          commentID: 3,
+          date: "2019-10-23",
+          title: "두번째 질문입니다",
+          name: "상병 강민석",
+          text: "OSAM 캠프 참여 실시",
+          like: "22",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
+        },
+        {
+          id: 3,
+          contentToggle: false,
+
+          commentID: 3,
+          date: "2019-10-24",
+          title: "세번째 질문입니다",
+          name: "상병 조정민",
+          text: "OSAM 캠프 참여 실시",
+          like: "20",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
+        }
+      ]
+    }
   },
   getters: {
     joinSquadMatesAndReport(state) {

@@ -40,8 +40,7 @@
 //
 export default {
   props: {
-    toggle: Function,
-    addReport: Function
+    toggle: Function
   },
   data() {
     return {
@@ -49,6 +48,18 @@ export default {
       title: "",
       text: ""
     };
+  },
+  computed: {
+    reports() {
+      var reports = this.$store.state.postList.reports;
+      return reports;
+    },
+    reportId() {
+      return this.$store.state.postList.reportId;
+    },
+    account() {
+      return this.$store.state.account;
+    }
   },
   methods: {
     closeField() {
@@ -58,10 +69,14 @@ export default {
     onPostReport() {
       this.toggle();
       this.dialog = false;
-      this.addReport({
+      this.reports.push({
+        id: this.reportId++,
+        date: new Date().toISOString().substring(0, 10),
         title: this.title,
         text: this.text,
-        like: "0"
+        name: this.account.rank + " " + this.account.name,
+        commentID: 1,
+        comemnts: []
       });
       this.title = "";
       this.text = "";

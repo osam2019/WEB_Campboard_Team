@@ -66,8 +66,7 @@ export default {
       this.addReport({
         title: this.title,
         text: this.text,
-        like: "0",
-        name: this.account.rank + " " + this.account.rank.name
+        like: "0"
       });
       this.title = "";
       this.text = "";
