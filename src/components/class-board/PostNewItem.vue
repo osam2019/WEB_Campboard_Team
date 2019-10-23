@@ -52,9 +52,9 @@ export default {
   },
   computd: {
     account() {
-      return this.$store.state.account
+      return this.$store.state.account;
     }
-  }
+  },
   methods: {
     closeField() {
       this.toggle();
