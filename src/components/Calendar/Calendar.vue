@@ -1,17 +1,32 @@
 <template>
   <div>
-    <v-menu leave-absolute="true" transition="slide-y-transition">
-      <template v-slot:activator="{ on }">
-        <v-btn color="primary" class="ma-2" v-on="on" @click="toggle">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
+    <v-btn color="primary" class="ma-2" @click="toggle">
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
+<<<<<<< HEAD:src/components/Calander.vue
+    <v-scroll-y-transition>
+      <v-card raised style="position: absolute; z-index: 30" v-show="display">
         <span>일정 등록하기</span>
-      </template>
+        <add-todo :addEvent="sendInfo"></add-todo>
+      </v-card>
+    </v-scroll-y-transition>
 
-      <v-col class="mb-12">
-        <add-todo v-show="display" :addEvent="sendInfo"></add-todo>
-      </v-col>
-    </v-menu>
+=======
+    <span
+      class="subtitle-2 primary white--text text-center display-1 pa-3"
+      style="border-radius: 10px"
+    >일정 등록하기</span>
+    <v-scroll-y-transition>
+      <v-card
+        raised
+        style="position:absolute; z-index:30;"
+        v-show="display"
+        transition="scroll-y-transition"
+      >
+        <add-todo :addEvent="sendInfo"></add-todo>
+      </v-card>
+    </v-scroll-y-transition>
+>>>>>>> eb274d11201f94886a35868e807d67d70b0f4339:src/components/Calendar/Calendar.vue
     <h1
       class="teal darken-2 white--text text-center display-1 pa-3"
       style="border-radius: 10px"
@@ -24,30 +39,25 @@
         :events="events"
         color="primary"
         type="week"
-        event-overlap-threshold="30"
         event-color="primary"
-        @click:time="test()"
+        @click:event="test"
       >
         <!-- the events at the top (all-day) -->
         <template v-slot:day-header="{ date }">
-          <template v-for="event in events[date]">
+          <template v-for="event in eventsMap[date]">
             <!-- all day events don't have time -->
             <div v-if="!event.time" :key="event.title" class="my-event" v-html="event.title"></div>
           </template>
         </template>
         <!-- the events at the bottom (timed) -->
         <template v-slot:day-body="{ date, timeToY, minutesToPixels }">
-          <template v-for="(event, index) in events[date]">
+          <div v-for="(event, index) in  eventsMap[date]" :key="index" class="my-event with-time">
             <!-- timed events -->
-            <div
-              v-if="event.time"
-              :key="index"
-              :style="{ top: timeToY(event.time) + 'px', height: minutesToPixels(event.duration) + 'px' }"
-              class="my-event with-time"
-              @click="open(event)"
+            <!-- <div
+              
               v-html="event.title"
-            ></div>
-          </template>
+            ></div>-->
+          </div>
         </template>
       </v-calendar>
     </v-sheet>
@@ -85,9 +95,10 @@ export default {
     info: {}
   }),
   methods: {
-    test() {
-      console.log(this.events);
-      console.log(this);
+    test(event) {
+      const idx = this.events.indexOf(event.event);
+      if (idx > -1) this.events.splice(idx, 1);
+      console.log(event);
     },
     toggle() {
       this.display = !this.display;
@@ -99,11 +110,16 @@ export default {
       if (name === "" || date == "" || start === "" || end === "") {
         alert("알맞은 시간과 내용을 입력해주세요");
         return;
+      } else if (start > end) {
+        console.log(start);
+        console.log(end);
+        alert("시작시간이 끝나는 시간보다 클 수 없습니다");
+        return;
       }
-
+      console.log(start);
       console.log(end);
+      console.log(start > end);
       function makeStr(date, str) {
-        console.log(date);
         return date + " " + str;
       }
       start = makeStr(date, start);

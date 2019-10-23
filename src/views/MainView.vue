@@ -2,7 +2,7 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <v-container class="fill-height" style="position:relative; top:0%; width: 100%;">
+        <v-container class="fill-height" style="width: 100%;">
           <v-row>
             <v-spacer></v-spacer>
             <v-col cols="8" class="mb-12">
@@ -25,8 +25,8 @@
 
 <script>
 import ToolBar from "../components/ToolBar.vue";
-import Calander from "../components/Calander.vue";
-import FoodCalendar from "../components/FoodCalendar.vue";
+import Calander from "../components/Calendar/Calendar.vue";
+import FoodCalendar from "../components/Calendar/FoodCalendar.vue";
 export default {
   components: {
     ToolBar,
