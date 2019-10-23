@@ -100,7 +100,7 @@ export default {
         title,
         text,
         like,
-        name: account.rank + " " + account.name,
+        name: this.account.rank + " " + this.account.name,
         commentID: 1,
         comments: []
       });

@@ -96,7 +96,7 @@ export default {
       edit: false,
       commentToggle: false,
       likeToggle: false,
-      name: account.rank + " " + account.name,
+      name: this.account.rank + " " + this.account.name,
       title: this.report.title,
       text: this.report.text,
       word: ""

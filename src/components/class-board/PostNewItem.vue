@@ -67,7 +67,7 @@ export default {
         title: this.title,
         text: this.text,
         like: "0",
-        name: account.rank + " " + account.rank.name
+        name: this.account.rank + " " + this.account.rank.name
       });
       this.title = "";
       this.text = "";
