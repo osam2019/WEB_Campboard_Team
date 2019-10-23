@@ -81,6 +81,11 @@ export default {
       ]
     };
   },
+  computed: {
+    account() {
+      return this.$store.state.account;
+    }
+  },
   methods: {
     removeReport({ id }) {
       this.reports.splice(this.reports.findIndex(r => r.id === id), 1);
@@ -95,7 +100,7 @@ export default {
         title,
         text,
         like,
-        name: this.$store.state.userLevel + " " + this.$store.state.userName,
+        name: this.account.rank + " " + this.account.name,
         commentID: 1,
         comments: []
       });

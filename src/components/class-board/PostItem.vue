@@ -18,9 +18,7 @@
           </v-list-item-content>
           <v-row align="center" justify="end">
             <!--  자신이 쓴 글만 수정 권한 부여 -->
-            <template
-              v-if="this.$store.state.userLevel+' '+this.$store.state.userName === report.name"
-            >
+            <template v-if="account.rank+' '+account.name === report.name">
               <v-icon class="mr-4" @click="postEditToggle">mdi-square-edit-outline</v-icon>
             </template>
 
@@ -98,11 +96,16 @@ export default {
       edit: false,
       commentToggle: false,
       likeToggle: false,
-      name: this.$store.state.userLevel + " " + this.$store.state.userName,
+      name: this.account.rank + " " + this.account.name,
       title: this.report.title,
       text: this.report.text,
       word: ""
     };
+  },
+  computed: {
+    account() {
+      return this.$store.state.account;
+    }
   },
   methods: {
     pushLike() {

@@ -50,6 +50,11 @@ export default {
       text: ""
     };
   },
+  computd: {
+    account() {
+      return this.$store.state.account;
+    }
+  },
   methods: {
     closeField() {
       this.toggle();
@@ -61,7 +66,8 @@ export default {
       this.addReport({
         title: this.title,
         text: this.text,
-        like: "0"
+        like: "0",
+        name: this.account.rank + " " + this.account.rank.name
       });
       this.title = "";
       this.text = "";
