@@ -30,7 +30,7 @@
         color="primary"
         type="week"
         event-color="primary"
-        @click:event="test"
+        @click:event="del"
       >
         <!-- the events at the top (all-day) -->
         <template v-slot:day-header="{ date }">
@@ -85,7 +85,7 @@ export default {
     info: {}
   }),
   methods: {
-    test(event) {
+    del(event) {
       const idx = this.events.indexOf(event.event);
       if (idx > -1) this.events.splice(idx, 1);
       console.log(event);
@@ -106,9 +106,11 @@ export default {
         alert("시작시간이 끝나는 시간보다 클 수 없습니다");
         return;
       }
+
       console.log(start);
       console.log(end);
       console.log(start > end);
+
       function makeStr(date, str) {
         return date + " " + str;
       }
