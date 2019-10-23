@@ -3,20 +3,11 @@
     <v-btn color="primary" class="ma-2" @click="toggle">
       <v-icon>mdi-plus</v-icon>
     </v-btn>
-<<<<<<< HEAD:src/components/Calander.vue
     <v-scroll-y-transition>
-      <v-card raised style="position: absolute; z-index: 30" v-show="display">
-        <span>일정 등록하기</span>
-        <add-todo :addEvent="sendInfo"></add-todo>
-      </v-card>
-    </v-scroll-y-transition>
-
-=======
-    <span
-      class="subtitle-2 primary white--text text-center display-1 pa-3"
-      style="border-radius: 10px"
-    >일정 등록하기</span>
-    <v-scroll-y-transition>
+      <span
+        class="subtitle-2 primary white--text text-center display-1 pa-3"
+        style="border-radius: 10px"
+      >일정 등록하기</span>
       <v-card
         raised
         style="position:absolute; z-index:30;"
@@ -26,7 +17,7 @@
         <add-todo :addEvent="sendInfo"></add-todo>
       </v-card>
     </v-scroll-y-transition>
->>>>>>> eb274d11201f94886a35868e807d67d70b0f4339:src/components/Calendar/Calendar.vue
+
     <h1
       class="teal darken-2 white--text text-center display-1 pa-3"
       style="border-radius: 10px"
