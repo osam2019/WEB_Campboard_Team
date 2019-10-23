@@ -5,6 +5,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    account: {
+      userType: "분대장",
+      rank: "상병",
+      name: "강민석",
+      regiment: "작전지원중대",
+      subRegiment: "1소대",
+      room: "5생활관"
+    },
+
     reportId: 1,
     squadMateId: 1,
     reports: [],

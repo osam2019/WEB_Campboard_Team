@@ -1,38 +1,58 @@
 <template>
-  <div class="user-container">
-    <v-list-item>
-      <v-list-item-avatar>
+  <!-- <v-list class="d-flex flex-column pa-7">
+    <v-list-item class="d-flex justify-center">
+      <v-list-item-avatar size="100">
         <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
       </v-list-item-avatar>
     </v-list-item>
-
-    <div class="user-description">
-      <!-- <div>
-            계급, 호봉, 이름: {{ info.id }}
-      </div>-->
-      <div>{{ "상병(4) 강민석" }}</div>
-      <div>
-        <!-- 소속: {{ info.created }} -->
-        {{ "작전지원중대" }}
-      </div>
-      <div>
-        <!-- 소속: {{ info.created }} -->
-        {{ "1소대 5생활관" }}
-      </div>
-      <div>
-        <!-- 소속: {{ info.created }} -->
-        {{ "분대장" }}
-      </div>
-      <!-- <router-link :to="`/user/${userInfo.user}`">
-            {{ userInfo.id }}
-      </router-link>-->
-    </div>
-    <v-divider></v-divider>
-  </div>
+    <v-list-item>{{ account.rank }} {{account.name}}</v-list-item>
+    <v-list-item>{{ account.regiment }} {{account.subRegiment}}</v-list-item>
+    <v-list-item>{{account.room}}</v-list-item>
+    <v-list-item>{{account.userType}}</v-list-item>
+  </v-list>-->
+  <v-container class="pl-9 pr-9 d-flex flex-column justify-center">
+    <v-row class="align-self-center">
+      <v-col class="title font-weight-bold">
+        <v-avatar size="100">
+          <v-img class="card-img" src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+        </v-avatar>
+      </v-col>
+    </v-row>
+    <v-row class="align-self-center">
+      <v-col class="title font-weight-bold">{{ account.rank }} {{account.name}}</v-col>
+    </v-row>
+    <v-row>
+      <v-col class="d-flex align-items-center">
+        <v-icon class="mr-3">mdi-map-marker</v-icon>
+        <div>
+          <span>{{ account.regiment }}</span>
+          <div>{{account.subRegiment}}</div>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="d-flex align-items-center">
+        <v-icon class="mr-3">mdi-home</v-icon>
+        <span>{{account.room}}</span>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="d-flex align-items-center">
+        <v-icon class="mr-3">mdi-clipboard-account-outline</v-icon>
+        <span>{{account.userType}}</span>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    account() {
+      return this.$store.state.account;
+    }
+  }
+};
 </script>
 
 <style scoped>

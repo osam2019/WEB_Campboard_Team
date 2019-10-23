@@ -1,14 +1,14 @@
 <template>
   <div>
-    <v-menu transition="scroll-y-transition">
-      <span>일정 등록하기</span>
-      <template v-slot:activator="{ on }">
-        <v-btn color="primary" class="ma-2" v-on="on">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </template>
-      <add-todo :addEvent="sendInfo"></add-todo>
-    </v-menu>
+    <v-btn color="primary" class="ma-2" @click="toggle">
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
+    <v-scroll-y-transition>
+      <v-card raised style="position: absolute; z-index: 30" v-show="display">
+        <span>일정 등록하기</span>
+        <add-todo :addEvent="sendInfo"></add-todo>
+      </v-card>
+    </v-scroll-y-transition>
 
     <h1
       class="teal darken-2 white--text text-center display-1 pa-3"
