@@ -3,8 +3,8 @@ import VueRouter from "vue-router";
 import LoginView from "../views/LoginView.vue";
 import MainView from "../views/MainView.vue";
 import ClassBoard from "../views/ClassBoard.vue";
-import DevView from "../views/DevView.vue";
-
+import PointView from "../views/PointView.vue";
+import LeaderNoteView from "../views/LeaderNoteView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -13,6 +13,7 @@ export const router = new VueRouter({
   routes: [
     {
       path: "/", //redirect 바로 /news url로 access
+      name: "/",
       redirect: "/loginview"
     },
     {
@@ -30,15 +31,20 @@ export const router = new VueRouter({
       component: MainView
     },
     {
-      path: "/devview",
-      name: "devview",
+      path: "/PointView",
+      name: "PointView",
       // component: AskView,
-      component: DevView
+      component: PointView
     },
-
     {
-      path: "/classboard",
-      name: "classboard",
+      path: "/LeaderNoteView",
+      name: "LeaderNoteView",
+      // component: AskView,
+      component: LeaderNoteView
+    },
+    {
+      path: "/ClassBoard",
+      name: "ClassBoard",
       component: ClassBoard
     }
   ]

@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     account: {
-      userType: "간부",
+      userType: "분대장",
       rank: "상병",
       name: "강민석",
       regiment: "작전지원중대",

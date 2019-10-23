@@ -1,21 +1,23 @@
 <template>
-  <div>
+  <div style="width: 70%">
     <v-btn color="primary" class="ma-2" @click="toggle">
       <v-icon>mdi-plus</v-icon>
     </v-btn>
+    <span
+      class="subtitle-2 primary white--text text-center display-1 pa-3"
+      style="border-radius: 10px"
+    >일정 등록하기</span>
     <v-scroll-y-transition>
-      <span
-        class="subtitle-2 primary white--text text-center display-1 pa-3"
-        style="border-radius: 10px"
-      >일정 등록하기</span>
-      <v-card
-        raised
-        style="position:absolute; z-index:30;"
-        v-show="display"
-        transition="scroll-y-transition"
-      >
-        <add-todo :addEvent="sendInfo"></add-todo>
-      </v-card>
+      <template>
+        <v-card
+          v-show="display"
+          raised
+          style="position:absolute; z-index:30;"
+          transition="scroll-y-transition"
+        >
+          <add-todo :addEvent="sendInfo"></add-todo>
+        </v-card>
+      </template>
     </v-scroll-y-transition>
 
     <h1
@@ -62,7 +64,6 @@ export default {
   components: {
     AddTodo
   },
-
   data: () => ({
     display: false,
     today: "2019-10-22",
@@ -126,6 +127,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .my-event {
   overflow: hidden;

@@ -18,12 +18,12 @@ export default {
   data() {
     return {
       items: [
-        { text: "부대 일정 관리", icon: "mdi-folder" },
-        { text: "식단표 관리", icon: "mdi-account-multiple" },
-        { text: "부대 QnA", icon: "mdi-history" },
-        { text: "중대근무 관리", icon: "mdi-check-circle" },
-        { text: "상벌점 관리", icon: "mdi-upload" },
-        { text: "마음의 소리함", icon: "mdi-cloud-upload" }
+        { text: "부대 일정 관리", icon: "mdi-folder", to: "/" },
+        { text: "식단표 관리", icon: "mdi-account-multiple", to: "/" },
+        { text: "부대 QnA", icon: "mdi-history", to: "/" },
+        { text: "중대근무 관리", icon: "mdi-check-circle", to: "/" },
+        { text: "상벌점 관리", icon: "mdi-upload", to: "/" },
+        { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "/" }
       ]
     };
   }
