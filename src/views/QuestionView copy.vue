@@ -73,7 +73,7 @@
             <!-- 댓글 달기 기능 -->
             <section style="background: #0D47A1">
               <v-list-item style="margin: 10">
-                <v-text-field class="mt-3" dense label="Comment" v-model="t" filled rounded />
+                <v-text-field class="mt-3" dense label="Comment" filled rounded v-model="word" />
               </v-list-item>
               <!-- 댓글 추가 버튼 -->
               <v-list-item>
@@ -96,7 +96,6 @@ export default {
   },
   data() {
     return {
-      t: "",
       edit: false,
       commentToggle: false,
       likeToggle: false
@@ -134,11 +133,10 @@ export default {
       this.likeToggle = !this.likeToggle;
     },
     addComment() {
-      console.log(this.t);
       this.report.comments.push({
         id: this.report.commentId++,
         name: this.name,
-        word: this.t
+        word: this.word
       });
       this.word = "";
     },
