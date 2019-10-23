@@ -105,7 +105,7 @@ export default {
     report() {
       var postId = this.$route.params.id;
       var reports = this.$store.state.postList.reports;
-      var report = reports.splice(postId - 1, 1)[0];
+      var report = reports[postId - 1];
       return report;
     },
     account() {

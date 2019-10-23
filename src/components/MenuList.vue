@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      type: "분대장",
+      type: "분대원",
       items: [
         { text: "분대장 수첩", icon: "mdi-folder" },
         { text: "생활관 게시판", icon: "mdi-account-multiple" },
