@@ -4,6 +4,7 @@ import LoginView from "../views/LoginView.vue";
 import MainView from "../views/MainView.vue";
 import ClassBoard from "../views/ClassBoard.vue";
 import DevView from "../views/DevView.vue";
+import QuestionBoard from "../views/QuestionBoard.vue";
 
 Vue.use(VueRouter);
 
@@ -35,11 +36,15 @@ export const router = new VueRouter({
       // component: AskView,
       component: DevView
     },
-
     {
       path: "/classboard",
       name: "classboard",
       component: ClassBoard
+    },
+    {
+      path: "/questionboard",
+      name: "questionboard",
+      component: QuestionBoard
     }
   ]
 });
