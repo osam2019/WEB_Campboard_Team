@@ -62,7 +62,8 @@ export const router = new VueRouter({
       component: QuestionView
     },
     {
-      path: "/heartletter/",
+      path: "/heartletter",
+      name: "heartletter",
       component: HeartLetter
     }
   ]
