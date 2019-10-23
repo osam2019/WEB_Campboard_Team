@@ -27,7 +27,7 @@ export default {
           to: "ClassBoard"
         },
         { text: "생활관 Talk", icon: "mdi-star", to: "/" },
-        { text: "부대 QnA", icon: "mdi-history", to: "/" },
+        { text: "부대 QnA", icon: "mdi-history", to: "questionboard" },
         { text: "중대근무 일정", icon: "mdi-check-circle", to: "/" },
         { text: "상벌점 현황", icon: "mdi-upload", to: "PointView" },
         { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "/" }

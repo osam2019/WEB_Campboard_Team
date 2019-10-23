@@ -5,6 +5,10 @@ import MainView from "../views/MainView.vue";
 import ClassBoard from "../views/ClassBoard.vue";
 import PointView from "../views/PointView.vue";
 import LeaderNoteView from "../views/LeaderNoteView.vue";
+//import DevView from "../views/DevView.vue";
+import QuestionBoard from "../views/QuestionBoard.vue";
+import QuestionView from "../views/QuestionView.vue";
+
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -46,6 +50,15 @@ export const router = new VueRouter({
       path: "/ClassBoard",
       name: "ClassBoard",
       component: ClassBoard
+    },
+    {
+      path: "/questionboard",
+      name: "questionboard",
+      component: QuestionBoard
+    },
+    {
+      path: "/questionboard/:id",
+      component: QuestionView
     }
   ]
 });
