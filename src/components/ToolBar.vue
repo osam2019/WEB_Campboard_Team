@@ -28,7 +28,7 @@
   </v-app>
 </template>
 <script>
-import MenuList from "./MenuList.vue";
+import MenuList from "./menus/MenuList.vue";
 
 export default {
   components: {
