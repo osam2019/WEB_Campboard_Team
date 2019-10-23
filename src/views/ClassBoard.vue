@@ -10,7 +10,7 @@
 
 <script>
 import ToolBar from "../components/ToolBar.vue";
-import PostList from "../components/PostList.vue";
+import PostList from "../components/class-board/PostList.vue";
 
 export default {
   components: {
