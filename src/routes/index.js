@@ -21,6 +21,7 @@ export const router = new VueRouter({
       // path: url 주소
       path: "/loginview",
       name: "loginview",
+
       // coomponent: url 주소로 갔을 때 표시될 컴포넌트
       // component: NewsView,
       component: LoginView
