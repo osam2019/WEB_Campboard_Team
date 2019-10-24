@@ -37,7 +37,7 @@
         locale="ko-kr"
         :type="calendarType"
         event-color="primary"
-        @click:event="del"
+        @click:event="removeEvent"
       ></v-calendar>
     </v-card>
   </div>
@@ -75,18 +75,22 @@ export default {
       .toISOString()
       .substr(0, 16)
       .replace("T", " "),
+    eventId: 4,
     events: [
       {
+        id: 1,
         name: "취침",
         start: "2019-10-21 22:00",
         end: "2019-10-22 07:00"
       },
       {
+        id: 2,
         name: "취침",
         start: "2019-10-23 22:00",
         end: "2019-10-24 07:00"
       },
       {
+        id: 3,
         name: "취침",
         start: "2019-10-24 22:00",
         end: "2019-10-25 07:00"
@@ -100,11 +104,16 @@ export default {
     nextCalendar() {
       this.$refs.calendar.next();
     },
-    del(event) {
-      if (this.$store.state.account != "간부") return;
-      const idx = this.events.indexOf(event.event);
-      if (idx > -1) this.events.splice(idx, 1);
-      console.log(event);
+    removeEvent({ event }) {
+      const ans = confirm("삭제하시겠습니까?");
+      if (!ans) {
+        return;
+      }
+
+      const idx = this.events.findIndex(e => e.id === event.id);
+      if (idx > -1) {
+        this.events.splice(idx, 1);
+      }
     },
     toggle() {
       this.display = !this.display;
@@ -125,7 +134,12 @@ export default {
         .toISOString()
         .substr(0, 16)
         .replace("T", " ");
-      this.events.push({ name, start: startStr, end: endStr });
+      this.events.push({
+        id: this.eventId++,
+        name,
+        start: startStr,
+        end: endStr
+      });
       this.display = false;
     }
   },
