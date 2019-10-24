@@ -9,7 +9,7 @@ import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetterView from "../views/HeartLetterView.vue";
 import Vacation from "../views/VacationView.vue";
-import Register from "../views/RegistView.vue";
+import Register from "../views/RegisterView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
