@@ -3,25 +3,36 @@
     <v-layout class="d-flex align-center mb-2">
       <span class="display-1 font-weight-bold mr-4">식단표</span>
       <template v-if="account.userType === '간부'">
-        <v-btn rounded color="primary" @click="toggle">+ 일정 등록하기</v-btn>
+        <v-menu
+          style="z-index: 30;"
+          v-model="display"
+          :close-on-content-click="false"
+          transition="scroll-y-transition"
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn ref="registerBtn" rounded color="primary" @click="toggle">+ 식단 등록하기</v-btn>
+          </template>
+          <add-food :addFood="addFood" :toggle="toggle"></add-food>
+        </v-menu>
       </template>
+      <v-spacer></v-spacer>
+      <v-btn class="mr-5" outlined color="primary" @click="prevCalendar">
+        <v-icon large>mdi-chevron-left</v-icon>
+      </v-btn>
+      <v-btn outlined color="primary" @click="nextCalendar">
+        <v-icon large>mdi-chevron-right</v-icon>
+      </v-btn>
     </v-layout>
-    <v-scroll-y-transition>
-      <v-card
-        raised
-        style="position:absolute; z-index:30;"
-        v-show="display"
-        transition="scroll-y-transition"
-      >
-        <AddFood :addEvent="AddFood"></AddFood>
-      </v-card>
-    </v-scroll-y-transition>
-    <v-card height="500px" class="mb-12">
+    <v-card raised class="mb-12">
       <v-calendar
-        @click:event="del"
+        ref="calendar"
+        v-model="start"
+        @click:event="removeEvent"
         type="month"
         now="2019-10-23"
         value="2019-10-23"
+        :event-height="120"
+        :event-color="() => 'secondary'"
         :events="events"
       ></v-calendar>
     </v-card>
@@ -49,48 +60,61 @@ export default {
   },
   data: () => ({
     display: false,
+    start: new Date().toISOString().substr(0, 10),
+    eventId: 7,
     events: [
       {
-        name: "불고기<br>잡채",
+        id: 1,
+        name: "영양밥<br>육개장<br>야채튀김<br>가지볶음<br>배추김치",
         start: "2019-10-30"
       },
       {
-        name: "짜장면<br>현미밥",
+        id: 2,
+        name: "영양밥<br>육개장<br>야채튀김<br>가지볶음<br>배추김치",
         start: "2019-10-29"
       },
       {
-        name: "고기<br>치킨",
+        id: 3,
+        name: "영양밥<br>육개장<br>야채튀김<br>가지볶음<br>배추김치",
         start: "2019-10-28"
       },
       {
-        name: "불고기<br>한우",
+        id: 4,
+        name: "영양밥<br>육개장<br>야채튀김<br>가지볶음<br>배추김치",
         start: "2019-10-27"
       },
       {
-        name: "불고기<br>쿠키",
+        id: 5,
+        name: "영양밥<br>육개장<br>야채튀김<br>가지볶음<br>배추김치",
         start: "2019-10-26"
       },
       {
-        name: "불고기<br>잡채",
+        id: 6,
+        name: "영양밥<br>육개장<br>야채튀김<br>가지볶음<br>배추김치",
         start: "2019-10-25"
       }
     ]
   }),
   methods: {
-    del(event) {
-      if (this.$store.state.account != "간부") return;
-      const idx = this.events.indexOf(event.event);
-      if (idx > -1) this.events.splice(idx, 1);
+    prevCalendar() {
+      this.$refs.calendar.prev();
     },
-    AddFood(name, start) {
-      if (this.events.findIndex(i => i.start == start) == -1) {
-        console.log(this.events.findIndex(i => i.start == start));
-        this.events.push({ name, start });
-      } else {
-        console.log(this.events.findIndex(i => i.start == start));
-        this.events[this.events.findIndex(i => i.start == start)].name +=
-          "<br>" + name;
+    nextCalendar() {
+      this.$refs.calendar.next();
+    },
+    removeEvent({ event }) {
+      const ans = confirm("삭제하시겠습니까?");
+      if (!ans) {
+        return;
       }
+
+      const idx = this.events.findIndex(e => e.id === event.id);
+      if (idx > -1) {
+        this.events.splice(idx, 1);
+      }
+    },
+    addFood({ name, date }) {
+      this.events.push({ id: this.eventId++, name, start: date });
     },
     toggle() {
       this.display = !this.display;

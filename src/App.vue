@@ -40,7 +40,17 @@ export default {
 
 .theme--light.v-calendar-daily .v-calendar-daily_head-day {
   background-color: #009688;
+  padding-top: 0.8rem;
   border-right: transparent !important;
+}
+
+.v-btn.v-btn--depressed.v-btn--fab.v-btn--round.theme--light.v-size--default {
+  height: 40px;
+  width: 40px;
+}
+
+.v-calendar-daily_head-day-label {
+  margin-bottom: 0.5rem;
 }
 
 .v-calendar-daily__scroll-area::-webkit-scrollbar {

@@ -1,6 +1,6 @@
 <template>
   <div style="width: 70%">
-    <v-layout class="d-flex align-center mb-2">
+    <v-layout class="d-flex align-center">
       <span class="display-1 font-weight-bold mr-4">일정표</span>
       <template v-if="account.userType === '간부'">
         <v-menu
@@ -23,10 +23,10 @@
         <v-icon large>mdi-chevron-right</v-icon>
       </v-btn>
       <div style="width: 10%">
-        <v-select color="primary" :items="calendarTypes" label="달력 형태" v-model="calendarType"></v-select>
+        <v-select dense color="primary" :items="calendarTypes" label="달력 형태" v-model="calendarType"></v-select>
       </div>
     </v-layout>
-    <v-card raised height="400">
+    <v-card raised height="600">
       <v-calendar
         ref="calendar"
         v-model="start"
