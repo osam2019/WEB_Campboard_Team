@@ -132,8 +132,9 @@ export default {
       this.commentToggle = !this.commentToggle;
     },
     addComment() {
+      var comm = this.post;
       this.post.comments.push({
-        id: this.post.commentId++,
+        id: comm.commentID++,
         name: this.name,
         word: this.word
       });

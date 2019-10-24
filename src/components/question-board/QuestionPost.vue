@@ -127,9 +127,8 @@ export default {
       this.likeToggle = !this.likeToggle;
     },
     addComment() {
-      console.log(this.t);
       this.report.comments.push({
-        id: this.report.commentId++,
+        id: this.report.commentID++,
         name: this.account.rank + " " + this.account.name,
         word: this.word
       });
