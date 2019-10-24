@@ -1,21 +1,30 @@
 <template>
-  <v-form ref="form" lazy-validation>
-    <v-container style="background:white" class="pb-12 pt-12">
-      <v-text-field v-model="name" label="일정내용" outlined shaped></v-text-field>
+  <v-card class="pa-5">
+    <v-container>
       <v-row>
-        <v-col :key="1">
-          <v-date-picker v-model="date"></v-date-picker>
+        <v-col class="display-1" cols="12">일정 등록</v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-datetime-picker v-model="start" label="일정 시작 날짜/시간"></v-datetime-picker>
         </v-col>
-        <v-col :key="2">
-          <v-time-picker v-model="start"></v-time-picker>
-        </v-col>
-        <v-col :key="3">
-          <v-time-picker v-model="end"></v-time-picker>
+        <v-col>
+          <v-datetime-picker v-model="end" label="일정 종료 날짜/시간"></v-datetime-picker>
         </v-col>
       </v-row>
-      <v-btn @click="addEvent(name,date,start,end)" color="primary">Submit</v-btn>
+      <v-row>
+        <v-col>
+          <v-text-field name="details-input" label="일정 내용" id="details-input" v-model="name" />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col class="d-flex">
+          <v-spacer></v-spacer>
+          <v-btn @click="addEvent({name, start, end})" raised color="primary">등록하기</v-btn>
+        </v-col>
+      </v-row>
     </v-container>
-  </v-form>
+  </v-card>
 </template>
 
 <script>
@@ -24,7 +33,6 @@ export default {
   data() {
     return {
       name: "",
-      date: new Date().toISOString().substr(0, 10),
       start: "",
       end: ""
     };

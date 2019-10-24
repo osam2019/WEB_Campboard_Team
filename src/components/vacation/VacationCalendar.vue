@@ -281,18 +281,4 @@ export default {
 </script>
 
 <style>
-.v-calendar-weekly__head {
-  background-color: #009688;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-}
-.theme--light.v-calendar-weekly .v-calendar-weekly__head-weekday {
-  background-color: transparent !important;
-  color: white !important;
-  border-right: none !important;
-  font-size: 1.2rem !important;
-}
-.v-calendar-weekly__day-label {
-  text-align: left;
-}
 </style>

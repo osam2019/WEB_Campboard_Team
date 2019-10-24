@@ -1,14 +1,11 @@
 <template>
   <div style="width: 70%">
-    <template v-if="account.userType === '간부'">
-      <v-btn color="primary" class="ma-2" @click="toggle">
-        <v-icon>mdi-plus</v-icon>
-      </v-btn>
-      <span
-        class="subtitle-2 primary white--text text-center display-1 pa-3"
-        style="border-radius: 10px"
-      >메뉴 등록</span>
-    </template>
+    <v-layout class="d-flex align-center mb-2">
+      <span class="display-1 font-weight-bold mr-4">식단표</span>
+      <template v-if="account.userType === '간부'">
+        <v-btn rounded color="primary" @click="toggle">+ 일정 등록하기</v-btn>
+      </template>
+    </v-layout>
     <v-scroll-y-transition>
       <v-card
         raised
@@ -20,10 +17,6 @@
       </v-card>
     </v-scroll-y-transition>
     <v-card height="500px" class="mb-12">
-      <h1
-        class="teal darken-2 white--text text-center display-1 pa-3"
-        style="border-radius: 10px"
-      >식단표</h1>
       <v-calendar
         @click:event="del"
         type="month"
