@@ -9,6 +9,7 @@ import LeaderNoteView from "../views/LeaderNoteView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetter from "../views/HeartLetter.vue";
+import Devview from "../views/Devview.vue";
 
 Vue.use(VueRouter);
 
@@ -16,11 +17,6 @@ export const router = new VueRouter({
   mode: "history", //url #값 제거 하는 기능
 
   routes: [
-    {
-      path: "/", //redirect 바로 /news url로 access
-      name: "/",
-      redirect: "/loginview"
-    },
     {
       // path: url 주소
       path: "/loginview",
@@ -65,6 +61,11 @@ export const router = new VueRouter({
       path: "/heartletter",
       name: "heartletter",
       component: HeartLetter
+    },
+    {
+      path: "/devview",
+      name: "devview",
+      component: Devview
     }
   ]
 });
