@@ -1,17 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { router } from "../routes/index";
-<<<<<<< HEAD
-import createPersistedState from "vuex-persistedstate";
-import * as Cookies from "js-cookie";
-=======
 
 // mock-up data
 import accountDataJSON from "./mock/account.json";
 import pointDataJSON from "./mock/point-data.json";
 import postListJSON from "./mock/post-list.json";
 
->>>>>>> 80a2e6204a169328034d3967fa382ca500a0e710
 Vue.use(Vuex);
 export const USE_MOCK_UP_DATA = true;
 
@@ -138,12 +133,5 @@ export default new Vuex.Store({
         );
       }
     }
-  },
-  plugins: [
-    createPersistedState({
-      getState: key => Cookies.getJSON(key),
-      setState: (key, state) =>
-        Cookies.set(key, state, { expires: 3, secure: true })
-    })
-  ]
+  }
 });

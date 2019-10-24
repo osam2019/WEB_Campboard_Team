@@ -194,6 +194,7 @@ export default {
   },
   methods: {
     registerVacation({ details, start, end }) {
+      console.log(this.account.name);
       this.events.push({
         id: this.eventId++,
         name: this.account.rank + " " + this.account.name,

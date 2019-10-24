@@ -16,17 +16,17 @@
     "regiment": "지작사",
     "subRegiment": "1소대",
     "room": "3생활관",
-    "usernum": "18-77777777",
+    "usernum": "18-1111111",
     "password": "google"
   },
   {
     "userType": "간부",
-    "rank": "상병",
+    "rank": "하사",
     "name": "주경진",
     "regiment": "이기자부대",
     "subRegiment": "2소대",
-    "room": "3생활관",
-    "usernum": "18-76032754",
+    "room": "-",
+    "usernum": "18-000000",
     "password": "google"
   }
 ]

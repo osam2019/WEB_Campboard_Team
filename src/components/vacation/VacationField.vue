@@ -90,7 +90,6 @@ export default {
       this.closeVacationField();
     },
     onClickCancel() {
-      console.log;
       this.startDate = "";
       this.endDate = "";
       this.menuStartDate = false;
