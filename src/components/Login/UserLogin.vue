@@ -15,10 +15,10 @@
             </v-card-text>
             <v-card-actions>
               <router-link to="/register">
-                <v-btn color="primary">Register</v-btn>
+                <v-btn color="primary">가입하기</v-btn>
               </router-link>
               <v-spacer></v-spacer>
-              <v-btn color="primary" @click="Login({usernum,password})">Login</v-btn>
+              <v-btn color="primary" @click="Login({usernum,password})">로그인</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>

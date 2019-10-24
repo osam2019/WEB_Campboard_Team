@@ -1,0 +1,32 @@
+[
+  {
+    "userType": "분대원",
+    "rank": "상병",
+    "name": "강민석",
+    "regiment": "작전지원중대",
+    "subRegiment": "1소대",
+    "room": "5생활관",
+    "usernum": "19-11111111",
+    "password": "google"
+  },
+  {
+    "userType": "분대장",
+    "rank": "병장",
+    "name": "정영훈",
+    "regiment": "지작사",
+    "subRegiment": "1소대",
+    "room": "3생활관",
+    "usernum": "18-77777777",
+    "password": "google"
+  },
+  {
+    "userType": "간부",
+    "rank": "상병",
+    "name": "주경진",
+    "regiment": "이기자부대",
+    "subRegiment": "2소대",
+    "room": "3생활관",
+    "usernum": "18-76032754",
+    "password": "google"
+  }
+]
