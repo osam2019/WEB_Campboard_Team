@@ -2,22 +2,20 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <Calander></Calander>
-        <FoodCalendar></FoodCalendar>
+        <main-page></main-page>
       </template>
     </tool-bar>
   </div>
 </template>
 
 <script>
-import ToolBar from "../components/ToolBar.vue";
-import Calander from "../components/mainShow/Calendar.vue";
-import FoodCalendar from "../components/mainShow/FoodCalendar.vue";
+import ToolBar from "../components/ToolBar";
+import MainPage from "../components/mainShow/MainPage";
+
 export default {
   components: {
     ToolBar,
-    Calander,
-    FoodCalendar
+    MainPage
   }
 };
 </script>

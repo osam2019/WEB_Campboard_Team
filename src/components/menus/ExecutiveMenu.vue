@@ -24,7 +24,8 @@ export default {
         { text: "중대근무 관리", icon: "mdi-check-circle", to: "/" },
         { text: "상벌점 관리", icon: "mdi-upload", to: "/" },
         { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "/" },
-        { text: "휴가 현황", icon: "mdi-cloud-upload", to: "Vacation" }
+        { text: "휴가 현황", icon: "mdi-cloud-upload", to: "Vacation" },
+        { text: "로그 아웃", icon: "mdi-account-remove", to: "loginview" }
       ]
     };
   }

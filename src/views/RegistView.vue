@@ -1,13 +1,15 @@
 <template>
-  <user-login></user-login>
+  <v-app class="header">
+    <Regist></Regist>
+  </v-app>
 </template>
 
 <script>
-import UserLogin from "@/components/Login/UserLogin.vue";
+import Regist from "@/components/Login/Reg.vue";
 //import Regist from "@/components/Login/Regist.vue";
 export default {
   components: {
-    UserLogin
+    Regist
     //Regist
   }
 };

@@ -22,6 +22,7 @@ import UserProfile from "./UserProfile";
 import LeaderSoldierMenu from "./LeaderSoldierMenu";
 import SoldierMenu from "./SoldierMenu";
 import ExecutiveMenu from "./ExecutiveMenu";
+import { mapState, mapActions } from "vuex";
 
 export default {
   components: {
