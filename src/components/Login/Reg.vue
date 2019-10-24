@@ -107,7 +107,7 @@ export default {
         console.log(newPerson);
         this.$store.state.Leaders.push(newPerson);
         console.log(this.$store.state.Leaders);
-        this.$router.push({ name: "loginview" });
+        //this.$router.push({ name: "loginview" });
         return;
       } else {
         alert("패스워드가 다릅니다.");
