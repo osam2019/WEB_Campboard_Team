@@ -85,8 +85,7 @@ export default {
   },
   methods: {
     checkPwd() {
-      console.log(this.Leader);
-      var nowobj = this.Leader;
+      const nowobj = this.Leader;
       function checkInValid() {
         return (
           nowobj.rank == "" ||
@@ -104,10 +103,8 @@ export default {
       } else if (this.password1 == this.password2) {
         this.Leader.password = this.password1;
         var newPerson = Object.assign({}, this.Leader);
-        console.log(newPerson);
         this.$store.state.Leaders.push(newPerson);
-        console.log(this.$store.state.Leaders);
-        //this.$router.push({ name: "loginview" });
+        this.$router.push({ name: "loginview" });
         return;
       } else {
         alert("패스워드가 다릅니다.");
