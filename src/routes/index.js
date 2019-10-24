@@ -9,12 +9,7 @@ import LeaderNoteView from "../views/LeaderNoteView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetter from "../views/HeartLetter.vue";
-<<<<<<< HEAD
 import Vacation from "../views/VacationView.vue";
-=======
-import Devview from "../views/Devview.vue";
-
->>>>>>> f4a48b9c34a9f14d75601277874f6e6a27dba9c2
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -71,11 +66,11 @@ export const router = new VueRouter({
       path: "/heartletter",
       name: "heartletter",
       component: HeartLetter
-    },
-    {
-      path: "/devview",
-      name: "devview",
-      component: Devview
     }
+    //{
+    // path: "/devview",
+    //name: "devview",
+    //component: Devview
+    //}
   ]
 });
