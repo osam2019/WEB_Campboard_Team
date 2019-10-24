@@ -91,7 +91,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import VacationField from "./VacationField";
 
 export default {
@@ -224,7 +223,7 @@ export default {
       this.detailShown = true;
       this.clickedEvent = e;
     },
-    hideVacationDetails(e) {
+    hideVacationDetails() {
       this.detailShown = false;
       this.clickedEvent = null;
     },
