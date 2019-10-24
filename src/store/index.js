@@ -103,6 +103,38 @@ export default new Vuex.Store({
           reason: "국군의 날 행사 도우미"
         },
         {
+          id: 5,
+          giverRank: "상사",
+          giverName: "박장서",
+          date: "2019-09-24",
+          point: "-2",
+          reason: "아침점호 지각"
+        },
+        {
+          id: 1,
+          giverRank: "대위",
+          giverName: "김재명",
+          date: "2019-10-21",
+          point: "5",
+          reason: "일과 시간 외 배수구 작업"
+        },
+        {
+          id: 2,
+          giverRank: "상사",
+          giverName: "정민규",
+          date: "2019-10-10",
+          point: "2",
+          reason: "소대 축구 대회 우승"
+        },
+        {
+          id: 3,
+          giverRank: "대위",
+          giverName: "김재명",
+          date: "2019-10-01",
+          point: "1",
+          reason: "국군의 날 행사 도우미"
+        },
+        {
           id: 4,
           giverRank: "상사",
           giverName: "박장서",
