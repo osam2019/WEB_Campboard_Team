@@ -14,8 +14,8 @@
               </v-form>
             </v-card-text>
             <v-card-actions>
-              <router-link to="/Regist">
-                <v-btn color="primary">Regist</v-btn>
+              <router-link to="/register">
+                <v-btn color="primary">Register</v-btn>
               </router-link>
               <v-spacer></v-spacer>
               <v-btn color="primary" @click="Login({usernum,password})">Login</v-btn>

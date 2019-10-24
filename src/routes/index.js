@@ -9,8 +9,7 @@ import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetterView from "../views/HeartLetterView.vue";
 import Vacation from "../views/VacationView.vue";
-//import for Login
-import Regist from "../views/RegistView.vue";
+import Register from "../views/RegistView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -25,7 +24,7 @@ export const router = new VueRouter({
     {
       path: "/Regist",
       name: "Regist",
-      component: Regist
+      component: Register
     },
     {
       // path: url 주소

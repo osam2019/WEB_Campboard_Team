@@ -1,15 +1,15 @@
 <template>
   <v-app class="header">
-    <Regist></Regist>
+    <register></register>
   </v-app>
 </template>
 
 <script>
-import Regist from "@/components/Login/Reg.vue";
-//import Regist from "@/components/Login/Regist.vue";
+import Register from "@/components/Login/Register.vue";
+
 export default {
   components: {
-    Regist
+    Register
     //Regist
   }
 };
