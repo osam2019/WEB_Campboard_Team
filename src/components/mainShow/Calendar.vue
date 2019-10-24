@@ -1,24 +1,26 @@
 <template>
   <div style="width: 70%">
-    <v-btn color="primary" class="ma-2" @click="toggle">
-      <v-icon>mdi-plus</v-icon>
-    </v-btn>
-    <span
-      class="subtitle-2 primary white--text text-center display-1 pa-3"
-      style="border-radius: 10px"
-    >일정 등록하기</span>
-    <v-scroll-y-transition>
-      <template>
-        <v-card
-          v-show="display"
-          raised
-          style="position:absolute; z-index:30;"
-          transition="scroll-y-transition"
-        >
-          <add-todo :addEvent="sendInfo"></add-todo>
-        </v-card>
-      </template>
-    </v-scroll-y-transition>
+    <template v-if="account.userType === '간부'">
+      <v-btn color="primary" class="ma-2" @click="toggle">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+      <span
+        class="subtitle-2 primary white--text text-center display-1 pa-3"
+        style="border-radius: 10px"
+      >일정 등록하기</span>
+      <v-scroll-y-transition>
+        <template>
+          <v-card
+            v-show="display"
+            raised
+            style="position:absolute; z-index:30;"
+            transition="scroll-y-transition"
+          >
+            <add-todo :addEvent="sendInfo"></add-todo>
+          </v-card>
+        </template>
+      </v-scroll-y-transition>
+    </template>
 
     <h1
       class="teal darken-2 white--text text-center display-1 pa-3"
@@ -56,11 +58,15 @@
     </v-sheet>
   </div>
 </template>
-
 <script>
 import AddTodo from "./AddTodo.vue";
 
 export default {
+  computed: {
+    account() {
+      return this.$store.state.account;
+    }
+  },
   components: {
     AddTodo
   },
@@ -88,6 +94,7 @@ export default {
   }),
   methods: {
     del(event) {
+      if (this.$store.state.account != "간부") return;
       const idx = this.events.indexOf(event.event);
       if (idx > -1) this.events.splice(idx, 1);
       console.log(event);

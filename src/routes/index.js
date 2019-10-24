@@ -5,10 +5,10 @@ import MainView from "../views/MainView.vue";
 import ClassBoard from "../views/ClassBoard.vue";
 import PointView from "../views/PointView.vue";
 import LeaderNoteView from "../views/LeaderNoteView.vue";
-//import DevView from "../views/DevView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
-import HeartLetter from "../views/HeartLetter.vue";
+import HeartLetterView from "../views/HeartLetterView.vue";
+import Vacation from "../views/VacationView.vue";
 
 Vue.use(VueRouter);
 
@@ -23,12 +23,23 @@ export const router = new VueRouter({
     },
     {
       // path: url 주소
+      path: "/",
+      name: "/",
+      redirect: "loginview"
+    },
+    {
+      // path: url 주소
       path: "/loginview",
       name: "loginview",
-
       // coomponent: url 주소로 갔을 때 표시될 컴포넌트
       // component: NewsView,
       component: LoginView
+    },
+    {
+      // path: url 주소
+      path: "/Vacation",
+      name: "Vacation",
+      component: Vacation
     },
     {
       path: "/mainview",
@@ -65,7 +76,7 @@ export const router = new VueRouter({
     {
       path: "/heartletter",
       name: "heartletter",
-      component: HeartLetter
+      component: HeartLetterView
     }
   ]
 });

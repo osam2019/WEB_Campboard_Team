@@ -1,12 +1,14 @@
 <template>
   <div style="width: 70%">
-    <v-btn color="primary" class="ma-2" @click="toggle">
-      <v-icon>mdi-plus</v-icon>
-    </v-btn>
-    <span
-      class="subtitle-2 primary white--text text-center display-1 pa-3"
-      style="border-radius: 10px"
-    >일정 등록하기</span>
+    <template v-if="account.userType === '간부'">
+      <v-btn color="primary" class="ma-2" @click="toggle">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+      <span
+        class="subtitle-2 primary white--text text-center display-1 pa-3"
+        style="border-radius: 10px"
+      >메뉴 등록</span>
+    </template>
     <v-scroll-y-transition>
       <v-card
         raised
@@ -44,6 +46,11 @@
 <script>
 import AddFood from "./AddFood.vue";
 export default {
+  computed: {
+    account() {
+      return this.$store.state.account;
+    }
+  },
   components: {
     AddFood
   },
@@ -78,6 +85,7 @@ export default {
   }),
   methods: {
     del(event) {
+      if (this.$store.state.account != "간부") return;
       const idx = this.events.indexOf(event.event);
       if (idx > -1) this.events.splice(idx, 1);
     },
