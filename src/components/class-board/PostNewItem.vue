@@ -76,7 +76,4 @@ export default {
 </script>
 
 <style scoped>
-.textField {
-  padding: 7px;
-}
 </style>

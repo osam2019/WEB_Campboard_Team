@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .v-calendar .v-event.v-event-end {
   text-align: center;
   position: relative !important;

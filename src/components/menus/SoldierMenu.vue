@@ -26,7 +26,7 @@ export default {
         { text: "부대 QnA", icon: "mdi-history", to: "/" },
         { text: "중대근무 일정", icon: "mdi-check-circle", to: "/" },
         { text: "상벌점 현황", icon: "mdi-upload", to: "PointView" },
-        { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "/" }
+        { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "heartletter" }
       ]
     };
   }
