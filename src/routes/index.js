@@ -8,6 +8,7 @@ import LeaderNoteView from "../views/LeaderNoteView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetterView from "../views/HeartLetterView.vue";
+import Vacation from "../views/VacationView.vue";
 
 Vue.use(VueRouter);
 
@@ -22,11 +23,23 @@ export const router = new VueRouter({
     },
     {
       // path: url 주소
+      path: "/",
+      name: "/",
+      redirect: "loginview"
+    },
+    {
+      // path: url 주소
       path: "/loginview",
       name: "loginview",
       // coomponent: url 주소로 갔을 때 표시될 컴포넌트
       // component: NewsView,
       component: LoginView
+    },
+    {
+      // path: url 주소
+      path: "/Vacation",
+      name: "Vacation",
+      component: Vacation
     },
     {
       path: "/mainview",
@@ -63,7 +76,16 @@ export const router = new VueRouter({
     {
       path: "/heartletter",
       name: "heartletter",
+<<<<<<< HEAD
       component: HeartLetterView
+=======
+      component: HeartLetter
+>>>>>>> 759d1078c854bcdea3461757c1b90321bb426cd7
     }
+    //{
+    // path: "/devview",
+    //name: "devview",
+    //component: Devview
+    //}
   ]
 });

@@ -1,15 +1,7 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex>
-        <user-login></user-login>
-      </v-flex>
-      <!-- <v-flex xs6>
-        <Regist />>
-      </v-flex>-->
-    </v-layout>
-  </v-container>
-  <!-- <button class="LoginButton">Login</button> -->
+  <v-app class="header">
+    <user-login></user-login>
+  </v-app>
 </template>
 
 <script>
