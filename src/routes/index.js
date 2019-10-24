@@ -76,16 +76,7 @@ export const router = new VueRouter({
     {
       path: "/heartletter",
       name: "heartletter",
-<<<<<<< HEAD
       component: HeartLetterView
-=======
-      component: HeartLetter
->>>>>>> 759d1078c854bcdea3461757c1b90321bb426cd7
     }
-    //{
-    // path: "/devview",
-    //name: "devview",
-    //component: Devview
-    //}
   ]
 });
