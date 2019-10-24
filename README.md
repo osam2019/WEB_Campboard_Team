@@ -1,11 +1,18 @@
 # camp-board
+※ CampBoard.pdf를 참고하시면 저희의 팀프로젝트를 더욱 쉽게 이해가 가능합니다!
+
+##팀원
+
+
+##CampBoard 개발 배경
 
 ## Project setup
-
-필요한 package는 json파일에 다있기 때문에 npm을 통해 프로그램 설치하면 끝.
-
+npm i (npm install)을 통해 필요한 module package를 설치합니다.
+Module 설치과 완료가 되면 npm run serve를 실행시키면 로컬호스트로 저희의 프로젝트를 실행하실 수 있습니다.
 ```
-npm install
+1. npm install(npm i)
+2. npm run serve
+3. http://localhost:8080/ 에 접속하여 CampBoard 실행
 ```
 
 ## How-to-Use
