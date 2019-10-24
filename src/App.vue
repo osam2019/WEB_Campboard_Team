@@ -5,11 +5,10 @@
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
   data: () => ({
     //
-  }),
+  })
 };
 </script>
