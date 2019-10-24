@@ -40,7 +40,8 @@
 export default {
   data() {
     return {
-      expandedItemId: null
+      expandedItemId: null,
+      logTableData: []
     };
   },
   computed: {
@@ -61,22 +62,23 @@ export default {
       reasonHeader.sortable = false;
 
       return headers;
-    },
-    logTableData() {
-      const logTableData = this.$store.state.logTableData;
-      if (this.expandedItemId === logTableData.id) {
-        return logTableData.logs;
-      } else {
-        return [];
-      }
     }
   },
   methods: {
-    updateExpandedItemId({ item, value }) {
+    async updateExpandedItemId({ item, value }) {
       if (!value) {
         this.expandedItemId = null;
+        this.logTableData = [];
       } else {
         this.expandedItemId = item.id;
+        const logTableData = await this.$store.dispatch("getPointLogData", {
+          id: this.expandedItemId
+        });
+        if (this.expandedItemId === logTableData.id) {
+          this.logTableData = logTableData.logs;
+        } else {
+          return [];
+        }
       }
     },
     customSort(items, sortBy, sortDesc) {

@@ -9,8 +9,9 @@ import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetterView from "../views/HeartLetterView.vue";
 import Vacation from "../views/VacationView.vue";
-//import for Login
-import Register from "../views/RegistView.vue";
+import RegisterView from "../views/RegisterView.vue";
+import DevPlanView from "../views/DevPlanView.vue";
+import NotFoundView from "../views/NotFoundView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -23,16 +24,9 @@ export const router = new VueRouter({
       redirect: "/loginview"
     },
     {
-      // path: url 주소
-      path: "/",
-      name: "/",
-      redirect: "loginview"
-    },
-
-    {
       path: "/register",
       name: "register",
-      component: Register
+      component: RegisterView
     },
     {
       // path: url 주소
@@ -84,6 +78,25 @@ export const router = new VueRouter({
       path: "/heartletter",
       name: "heartletter",
       component: HeartLetterView
+    },
+    {
+      path: "/privatediary",
+      name: "privatediary",
+      redirect: "devplan"
+    },
+    {
+      path: "/checkduty",
+      name: "checkduty",
+      redirect: "devplan"
+    },
+    {
+      path: "/devplan",
+      name: "devplan",
+      component: DevPlanView
+    },
+    {
+      path: "/*",
+      component: NotFoundView
     }
   ]
 });
