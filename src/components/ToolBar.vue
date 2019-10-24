@@ -3,7 +3,9 @@
     <!-- Tool-Bar 중앙 및 왼쪽 메뉴버튼 부분 -->
     <v-app-bar app clipped-right color="primary" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>CampBoard</v-toolbar-title>
+      <v-list-title>
+        <router-link to="/mainview">CampBoard</router-link>
+      </v-list-title>
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-navigation-drawer class="pa-2" v-model="drawer" app>

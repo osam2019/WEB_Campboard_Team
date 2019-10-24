@@ -20,10 +20,10 @@ export default {
       items: [
         { text: "부대 일정 관리", icon: "mdi-folder", to: "/" },
         { text: "식단표 관리", icon: "mdi-account-multiple", to: "/" },
-        { text: "부대 QnA", icon: "mdi-history", to: "/" },
+        { text: "부대 QnA", icon: "mdi-history", to: "questionboard" },
         { text: "중대근무 관리", icon: "mdi-check-circle", to: "/" },
         { text: "상벌점 관리", icon: "mdi-upload", to: "/" },
-        { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "/" }
+        { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "heartletter" }
       ]
     };
   }
