@@ -2,23 +2,23 @@
   <div>
     <tool-bar>
       <template v-slot:main>
-        <main-page></main-page>
+        <heart-letter />
       </template>
     </tool-bar>
   </div>
-</template>
+</template>  
 
 <script>
-import ToolBar from "../components/ToolBar";
-import MainPage from "../components/mainShow/MainPage";
+import ToolBar from "../components/ToolBar.vue";
+import HeartLetter from "../components/heart-letter/HeartLetter";
 
 export default {
   components: {
     ToolBar,
-    MainPage
+    HeartLetter
   }
 };
 </script>
 
-<style>
+<style >
 </style>

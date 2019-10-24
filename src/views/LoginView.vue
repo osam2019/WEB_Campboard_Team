@@ -1,7 +1,5 @@
 <template>
-  <v-app class="header">
-    <user-login></user-login>
-  </v-app>
+  <user-login></user-login>
 </template>
 
 <script>

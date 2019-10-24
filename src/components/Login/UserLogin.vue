@@ -6,12 +6,12 @@
           <v-toolbar color="black" dark style="text-align:center">
             <v-toolbar-title>CampBoard</v-toolbar-title>
           </v-toolbar>
-          <v-card-text>
+          <v-card>
             <v-form>
-              <v-text-field label="군번" v-model="usernum" type="text"></v-text-field>
-              <v-text-field id="password" label="패스워드" v-model="password" type="password"></v-text-field>
+              <v-field label="군번" v-model="usernum" type="text"></v-field>
+              <v-field id="password" label="패스워드" v-model="password" type="password"></v-field>
             </v-form>
-          </v-card-text>
+          </v-card>
           <v-card-actions>
             <router-link to="/Regist">
               <v-btn color="primary">Regist</v-btn>

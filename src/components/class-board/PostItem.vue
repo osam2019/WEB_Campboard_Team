@@ -1,41 +1,42 @@
 <template>
-  <v-card class="mx-auto" color="#8BC34A" dark width="450">
+  <v-card raised class="mx-auto" color="#8BC34A" width="450">
     <template v-if="!edit">
-      <v-card-title>
-        <span style="color:black;font-weight:bold">{{ report.title }}</span>
+      <v-card-title class="d-flex justify-center">
+        <span style="color:black;font-weight:bold">{{ post.title }}</span>
+        <v-spacer></v-spacer>
+        <template v-if="account.rank+' '+account.name === post.name">
+          <v-btn icon @click="toggleRemoveDialog">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </template>
       </v-card-title>
-      <v-card-text class="black--text headline font-weight-bold body-1">{{ report.text }}</v-card-text>
-      <div>
-        <span style="color:black;font-size:7px;margin-left:20px">{{report.date}}</span>
-      </div>
+      <v-card-subtitle>
+        <span>{{post.date}}</span>
+      </v-card-subtitle>
+      <v-card-text class="black--text body-1">{{ post.text }}</v-card-text>
       <v-card-actions>
         <v-list-item class="grow">
           <v-list-item-avatar color="grey darken-3">
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            <v-icon size="20" class="card-img">mdi-account-circle</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title class="black--text">{{ report.name }}</v-list-item-title>
+            <v-list-item-title class="black--text">{{ post.name }}</v-list-item-title>
           </v-list-item-content>
           <v-row align="center" justify="end">
             <!--  자신이 쓴 글만 수정 권한 부여 -->
-            <template v-if="account.rank+' '+account.name === report.name">
-              <v-icon class="mr-4" @click="postEditToggle">mdi-square-edit-outline</v-icon>
+            <template v-if="account.rank+' '+account.name === post.name">
+              <v-btn icon @click="postEditToggle">
+                <v-icon>mdi-square-edit-outline</v-icon>
+              </v-btn>
             </template>
-            <v-icon class="mr-4" @click="commentListClick">mdi-comment-text-multiple-outline</v-icon>
+            <v-btn icon @click="commentListClick">
+              <v-icon>mdi-comment-text-multiple-outline</v-icon>
+            </v-btn>
             <!-- 좋아요 버튼 -->
-            <!-- 좋아요 누르기전 -->
-            <template v-if="!likeToggle">
-              <v-btn text icon>
-                <v-icon @click="pushLike">mdi-thumb-up</v-icon>
-              </v-btn>
-            </template>
-            <!-- 좋아요 누른후 -->
-            <template v-else>
-              <v-btn text icon color="deep-orange">
-                <v-icon @click="pushLike">mdi-thumb-up</v-icon>
-              </v-btn>
-            </template>
-            <span class="subheading mr-2">{{ report.like }}</span>
+            <v-btn text icon :color="likeToggle ? 'deep-orange' : ''">
+              <v-icon @click="pushLike">mdi-thumb-up</v-icon>
+            </v-btn>
+            <span class="subheading mr-2">{{ post.like }}</span>
           </v-row>
         </v-list-item>
       </v-card-actions>
@@ -49,7 +50,7 @@
       <!-- 내용수정 부분 -->
       <v-text-field class="ml-3 mr-3" dense label="내용" filled rounded v-model="text" />
       <div>
-        <span style="color:black;font-size:7px;margin-left:20px">{{report.date}}</span>
+        <span style="color:black;font-size:7px;margin-left:20px">{{post.date}}</span>
       </div>
       <!-- 버튼 부분 -->
       <v-btn class="mr-2 ma-3" color="primary" @click="postEditToggle">취소하기</v-btn>
@@ -60,11 +61,11 @@
       <v-list-item
         style="background: #2E7D32"
         class="mb-2"
-        v-for="comment in report.comments "
+        v-for="comment in post.comments "
         :key="comment.id"
       >
         <v-list-item-avatar color="grey darken-3">
-          <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+          <v-icon size="20" class="card-img">mdi-account-circle</v-icon>
         </v-list-item-avatar>
         <v-list-item-title class="black--text">{{ comment.name }} : {{ comment.word }}</v-list-item-title>
       </v-list-item>
@@ -79,24 +80,34 @@
         </v-list-item>
       </section>
     </template>
+    <v-overlay v-model="dialog">
+      <v-card class="black--text" color="white">
+        <v-card-title class="mb-1">삭제하시겠습니까?</v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn outlined color="primary" @click="toggleRemoveDialog">취소</v-btn>
+          <v-btn raised color="primary" @click="onRemovePost">삭제</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-overlay>
   </v-card>
 </template>
 
 <script>
 export default {
   props: {
-    id: Number,
-    report: Object,
-    removeReport: Function
+    post: Object,
+    removePost: Function
   },
   data() {
     return {
       edit: false,
       commentToggle: false,
       likeToggle: false,
-      title: this.report.title,
-      text: this.report.text,
-      word: ""
+      title: this.post.title,
+      text: this.post.text,
+      word: "",
+      dialog: false
     };
   },
   computed: {
@@ -111,9 +122,9 @@ export default {
     pushLike() {
       // likeToggle이 꺼져있으면 +1 , 켜져있으면 -1
       if (!this.likeToggle) {
-        this.report.like++;
+        this.post.like++;
       } else {
-        this.report.like--;
+        this.post.like--;
       }
       this.likeToggle = !this.likeToggle;
     },
@@ -121,16 +132,13 @@ export default {
       this.commentToggle = !this.commentToggle;
     },
     addComment() {
-      this.report.comments.push({
-        id: this.report.commentId++,
+      this.post.comments.push({
+        id: this.post.commentId++,
         name: this.name,
         word: this.word
       });
       this.word = "";
     },
-    // userMatchPost() {
-    //   return false;
-    // },
     postEditToggle() {
       this.edit = !this.edit;
       if (this.commentToggle) {
@@ -138,9 +146,15 @@ export default {
       }
     },
     onSave() {
-      this.report.title = this.title;
-      this.report.text = this.text;
+      this.post.title = this.title;
+      this.post.text = this.text;
       this.edit = !this.edit;
+    },
+    toggleRemoveDialog() {
+      this.dialog = !this.dialog;
+    },
+    onRemovePost() {
+      this.removePost({ id: this.post.id });
     }
   }
 };

@@ -29,7 +29,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn depressed small color="primary" @click="closeField">닫기</v-btn>
-          <v-btn depressed small color="primary" @click="onPostReport">게시하기</v-btn>
+          <v-btn depressed small color="primary" @click="onAddPost">게시하기</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -41,7 +41,7 @@
 export default {
   props: {
     toggle: Function,
-    addReport: Function
+    addPost: Function
   },
   data() {
     return {
@@ -60,10 +60,10 @@ export default {
       this.toggle();
       this.dialog = false;
     },
-    onPostReport() {
+    onAddPost() {
       this.toggle();
       this.dialog = false;
-      this.addReport({
+      this.addPost({
         title: this.title,
         text: this.text,
         like: "0"

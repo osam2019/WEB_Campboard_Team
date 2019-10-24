@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+<<<<<<< HEAD
     Leaders: [
       {
         userType: "분대원",
@@ -40,6 +41,16 @@ export default new Vuex.Store({
     isLogin: false,
 
     account: null,
+=======
+    account: {
+      userType: "간부",
+      rank: "상병",
+      name: "강민석",
+      regiment: "작전지원중대",
+      subRegiment: "1소대",
+      room: "5생활관"
+    },
+>>>>>>> 762e8ff07235be488a05603d12fdb0f9bea4de31
 
     reportId: 1,
     squadMateId: 1,
@@ -170,14 +181,11 @@ export default new Vuex.Store({
           contentToggle: false,
           commentID: 3,
           date: "2019-10-22",
-          title: "첫번째 질문",
-          name: "병장 정영훈",
-          text: "OSAM 캠프 참여 실시 날짜는 언제죠?",
+          title: "체단실 체중계가 고장났습니다",
+          name: "병장 강태엽",
+          text: "체단실 체중계가 완전히 고장나서 새로사야할 것 같습니다.",
           like: "24",
-          comments: [
-            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
-            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
-          ]
+          comments: [{ name: "중위 류두리", word: "확인", id: 1 }]
         },
         {
           id: 2,
@@ -185,7 +193,7 @@ export default new Vuex.Store({
 
           commentID: 3,
           date: "2019-10-23",
-          title: "두번째 질문입니다",
+          title: "중대장님께 휴가 관련 질문드립니다",
           name: "상병 강민석",
           text: "OSAM 캠프 참여 실시",
           like: "22",
@@ -199,8 +207,8 @@ export default new Vuex.Store({
           contentToggle: false,
           commentID: 3,
           date: "2019-10-24",
-          title: "세번째 질문입니다",
-          name: "상병 조정민",
+          title: "교육파견은 어떻게 처리가 되는거죠?",
+          name: "일병 김동준",
           text: "OSAM 캠프 참여 실시",
           like: "20",
           comments: [

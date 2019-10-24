@@ -5,19 +5,27 @@ import MainView from "../views/MainView.vue";
 import ClassBoard from "../views/ClassBoard.vue";
 import PointView from "../views/PointView.vue";
 import LeaderNoteView from "../views/LeaderNoteView.vue";
-//import DevView from "../views/DevView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
-import HeartLetter from "../views/HeartLetter.vue";
+import HeartLetterView from "../views/HeartLetterView.vue";
 import Vacation from "../views/VacationView.vue";
+<<<<<<< HEAD
 //import for Login
 import Regist from "../views/RegistView.vue";
+=======
+
+>>>>>>> 762e8ff07235be488a05603d12fdb0f9bea4de31
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
   mode: "history", //url #값 제거 하는 기능
 
   routes: [
+    {
+      path: "/", //redirect 바로 /news url로 access
+      name: "/",
+      redirect: "/loginview"
+    },
     {
       // path: url 주소
       path: "/",
@@ -79,12 +87,7 @@ export const router = new VueRouter({
     {
       path: "/heartletter",
       name: "heartletter",
-      component: HeartLetter
+      component: HeartLetterView
     }
-    //{
-    // path: "/devview",
-    //name: "devview",
-    //component: Devview
-    //}
   ]
 });
