@@ -43,39 +43,55 @@ export default {
           id: 1,
           commentID: 3,
           date: "2019-10-22",
-          title: "첫번째 게시글 제목입니다",
-          name: "병장 정영훈",
-          text: "OSAM 캠프 참여 실시",
+          title: "외출 같이갈사람 댓 ㄱㄱ",
+          name: "상병 강민석",
+          text: "날짜한번잡아보자",
           like: "24",
           comments: [
-            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
-            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+            { name: "일병 박경필", word: "25일 어떠십니까???", id: 1 },
+            { name: "상병 강혁", word: "ㄱㄱㄱ", id: 2 }
           ]
         },
         {
           id: 3,
           commentID: 3,
+<<<<<<< HEAD
+          date: "2019-10-23",
+          title: "난 이제 말출 간다 ㅎㅎㅎㅎ",
+          name: "병장 강태엽",
+          text: "15일간 사라져주겠음 ㅋㅋ",
+          like: "15",
+=======
           date: "2019-10-24",
           title: "세번째 게시글 제목입니다",
           name: "상병 조정민",
           text: "OSAM 캠프 참여 실시",
           like: "20",
+>>>>>>> 1e5b5ec7145ab9b70aa104721eaa71e6ccd630f0
           comments: [
-            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
-            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+            { name: "일병 김동준", word: "말출 추카드립니당", id: 1 },
+            { name: "상병 김진석", word: "후 나는 말출 언제 가노 ㅠㅠ", id: 2 }
           ]
         },
         {
           id: 2,
           commentID: 3,
+<<<<<<< HEAD
+          date: "2019-10-24",
+          title: "SW캠프 선발되서 교육파견 5일다녀옵니다",
+          name: "상병 조정민",
+          text: "휴가가 아니라 교육파견이라 참고해주세요",
+          like: "20",
+=======
           date: "2019-10-23",
           title: "두번째 게시글 제목입니다",
           name: "상병 강민석",
           text: "OSAM 캠프 참여 실시",
           like: "22",
+>>>>>>> 1e5b5ec7145ab9b70aa104721eaa71e6ccd630f0
           comments: [
-            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
-            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+            { name: "일병 허웅", word: "오 나도 됨!!", id: 1 },
+            { name: "일병 김민석", word: "무슨 계발하는거야?", id: 2 }
           ]
         }
       ]
