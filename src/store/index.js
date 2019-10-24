@@ -1,18 +1,45 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import { router } from "../routes/index";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    account: {
-      userType: "분대원",
-      rank: "상병",
-      name: "강민석",
-      regiment: "작전지원중대",
-      subRegiment: "1소대",
-      room: "5생활관"
-    },
+    Leaders: [
+      {
+        userType: "분대원",
+        rank: "상병",
+        name: "강민석",
+        regiment: "작전지원중대",
+        subRegiment: "1소대",
+        room: "5생활관",
+        usernum: "19-11111111",
+        password: "google"
+      },
+      {
+        userType: "분대장",
+        rank: "병장",
+        name: "정영훈",
+        regiment: "지작사",
+        subRegiment: "1소대",
+        room: "3생활관",
+        usernum: "18-77777777",
+        password: "google"
+      },
+      {
+        userType: "간부",
+        rank: "상병",
+        name: "주경진",
+        regiment: "이기자부대",
+        subRegiment: "2소대",
+        room: "3생활관",
+        usernum: "18-76032754",
+        password: "google"
+      }
+    ],
+    isLogin: false,
+
+    account: null,
 
     reportId: 1,
     squadMateId: 1,
@@ -170,7 +197,6 @@ export default new Vuex.Store({
         {
           id: 3,
           contentToggle: false,
-
           commentID: 3,
           date: "2019-10-24",
           title: "세번째 질문입니다",
@@ -200,6 +226,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    //로그인 성공
+    isLoginSuccess(state, who) {
+      state.isLogin = true;
+      console.log(state.account);
+      console.log(who);
+      state.account = Object.assign({}, who);
+      console.log(state.account);
+    },
+    isLoginError(state) {
+      state.isLogin = false;
+    },
     addSquadMate(state, { name }) {
       state.squadMates.push({ id: state.squadMateId++, name });
     },
@@ -236,5 +273,26 @@ export default new Vuex.Store({
       }
     }
   },
-  actions: {}
+  actions: {
+    //로그인 시도!
+    Login({ state, commit }, loginObj) {
+      //해당 유저 찾기
+      let selectedUser = null;
+
+      state.Leaders.forEach(user => {
+        if (user.usernum === loginObj.usernum) selectedUser = user;
+      });
+
+      if (selectedUser == null) {
+        alert("해당 유저가 없습니다!");
+        commit("isLoginError");
+      } else if (selectedUser.password != loginObj.password) {
+        alert("비밀번호가 다릅니다!");
+        commit("isLoginError");
+      } else {
+        commit("isLoginSuccess", selectedUser);
+        router.push({ name: "mainview" });
+      }
+    }
+  }
 });
