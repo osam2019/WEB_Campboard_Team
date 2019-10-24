@@ -5,7 +5,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-<<<<<<< HEAD
     Leaders: [
       {
         userType: "분대원",
@@ -41,16 +40,6 @@ export default new Vuex.Store({
     isLogin: false,
 
     account: null,
-=======
-    account: {
-      userType: "간부",
-      rank: "상병",
-      name: "강민석",
-      regiment: "작전지원중대",
-      subRegiment: "1소대",
-      room: "5생활관"
-    },
->>>>>>> 762e8ff07235be488a05603d12fdb0f9bea4de31
 
     reportId: 1,
     squadMateId: 1,
