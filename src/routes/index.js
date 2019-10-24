@@ -9,7 +9,7 @@ import LeaderNoteView from "../views/LeaderNoteView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetter from "../views/HeartLetter.vue";
-
+import Vacation from "../views/VacationView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -25,10 +25,15 @@ export const router = new VueRouter({
       // path: url 주소
       path: "/loginview",
       name: "loginview",
-
       // coomponent: url 주소로 갔을 때 표시될 컴포넌트
       // component: NewsView,
       component: LoginView
+    },
+    {
+      // path: url 주소
+      path: "/Vacation",
+      name: "Vacation",
+      component: Vacation
     },
     {
       path: "/mainview",
