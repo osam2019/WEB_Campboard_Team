@@ -22,10 +22,6 @@
 </template>
 
 <script>
-// import PostItem from "./PostItem.vue";
-// import PostQuestion from "./PostQuestion.vue";
-// import PostNewItem from "./PostNewItem.vue";
-
 export default {
   computed: {
     reports() {

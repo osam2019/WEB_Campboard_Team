@@ -65,6 +65,7 @@
       <v-card class="flex-grow-1" raised style="width: 100%">
         <v-sheet class="fill-height" style="width: 100%">
           <v-calendar
+            :key="updateKey"
             ref="calendar"
             type="month"
             locale="ko-kr"
@@ -152,7 +153,8 @@ export default {
           start: "2019-10-01",
           end: "2019-10-10"
         }
-      ]
+      ],
+      updateKey: 0
     };
   },
   computed: {
@@ -163,12 +165,9 @@ export default {
       }${t.getMonth() + 1}-${t.getDate() < 10 ? "0" : ""}${t.getDate()}`;
     },
     searchedEvents() {
-      if (!this.search.trim()) {
-        return this.events;
-      }
-
+      const trimmed = this.search.trim();
       return this.events
-        .filter(e => e.name.includes(this.search))
+        .filter(e => e.name.includes(trimmed))
         .sort((a, b) => a.id < b.id);
     },
     clickedEventDetails() {
@@ -212,6 +211,7 @@ export default {
       editEvent.start = start;
       editEvent.end = end;
       editEvent.details = details;
+      this.updateKey++;
     },
     closeVacationField() {
       this.vacationFieldShown = false;
@@ -277,27 +277,23 @@ export default {
       }
       return event.color;
     }
-  },
-  mounted() {
-    const changeStyle = (selector, style) => {
-      const nodes = this.$el.querySelectorAll(selector);
-      for (let node of nodes) {
-        node.style = style;
-      }
-    };
-    changeStyle(
-      ".v-calendar-weekly__head",
-      `background-color: #009688; padding-top: 0.8rem; padding-bottom: 0.8rem;`
-    );
-    changeStyle(
-      ".theme--light.v-calendar-weekly .v-calendar-weekly__head-weekday",
-      `background-color: transparent !important; color: white !important; border-right: none !important; font-size: 1.2rem !important;`
-    );
-    changeStyle(".v-calendar-weekly__day-label", `text-align:left`);
-    this.$forceUpdate();
   }
 };
 </script>
 
 <style>
+.v-calendar-weekly__head {
+  background-color: #009688;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.theme--light.v-calendar-weekly .v-calendar-weekly__head-weekday {
+  background-color: transparent !important;
+  color: white !important;
+  border-right: none !important;
+  font-size: 1.2rem !important;
+}
+.v-calendar-weekly__day-label {
+  text-align: left;
+}
 </style>
