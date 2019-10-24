@@ -3,7 +3,7 @@
     <v-row class="align-self-center">
       <v-col class="title font-weight-bold">
         <v-avatar size="100">
-          <v-img class="card-img" src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+          <v-icon size="100" class="card-img">mdi-account-circle</v-icon>
         </v-avatar>
       </v-col>
     </v-row>

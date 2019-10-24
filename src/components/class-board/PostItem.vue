@@ -11,7 +11,7 @@
       <v-card-actions>
         <v-list-item class="grow">
           <v-list-item-avatar color="grey darken-3">
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            <v-icon size="20" class="card-img">mdi-account-circle</v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="black--text">{{ report.name }}</v-list-item-title>
@@ -64,7 +64,7 @@
         :key="comment.id"
       >
         <v-list-item-avatar color="grey darken-3">
-          <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+          <v-icon size="20" class="card-img">mdi-account-circle</v-icon>
         </v-list-item-avatar>
         <v-list-item-title class="black--text">{{ comment.name }} : {{ comment.word }}</v-list-item-title>
       </v-list-item>
