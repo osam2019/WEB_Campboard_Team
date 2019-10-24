@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "logs": [
+      {
+        "id": 1,
+        "giverRank": "대위",
+        "giverName": "김재명",
+        "date": "2019-10-21",
+        "point": "5",
+        "reason": "일과 시간 외 배수구 작업"
+      },
+      {
+        "id": 2,
+        "giverRank": "상사",
+        "giverName": "정민규",
+        "date": "2019-10-10",
+        "point": "2",
+        "reason": "소대 축구 대회 우승"
+      },
+      {
+        "id": 3,
+        "giverRank": "대위",
+        "giverName": "김재명",
+        "date": "2019-10-01",
+        "point": "1",
+        "reason": "국군의 날 행사 도우미"
+      },
+      {
+        "id": 5,
+        "giverRank": "상사",
+        "giverName": "박장서",
+        "date": "2019-09-24",
+        "point": "-2",
+        "reason": "아침점호 지각"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "logs": [
+      {
+        "id": 1,
+        "giverRank": "중위",
+        "giverName": "정한별",
+        "date": "2019-08-21",
+        "point": "5",
+        "reason": "추석 행사 진행 도우미"
+      },
+      {
+        "id": 2,
+        "giverRank": "하사",
+        "giverName": "박찬근",
+        "date": "2019-09-10",
+        "point": "2",
+        "reason": "소대 축구 대회 준우승"
+      },
+      {
+        "id": 3,
+        "giverRank": "대위",
+        "giverName": "김재명",
+        "date": "2019-10-01",
+        "point": "1",
+        "reason": "국군의 날 행사 도우미"
+      },
+      {
+        "id": 5,
+        "giverRank": "상사",
+        "giverName": "박장서",
+        "date": "2019-09-24",
+        "point": "-2",
+        "reason": "아침점호 지각"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "logs": [
+      {
+        "id": 1,
+        "giverRank": "중위",
+        "giverName": "이규원",
+        "date": "2019-08-24",
+        "point": "5",
+        "reason": "책 정리"
+      },
+      {
+        "id": 2,
+        "giverRank": "중사",
+        "giverName": "채현수",
+        "date": "2019-09-10",
+        "point": "2",
+        "reason": "보안 스티커 부착 도우미"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "logs": [
+      {
+        "id": 1,
+        "giverRank": "중위",
+        "giverName": "김용진",
+        "date": "2019-09-10",
+        "point": "5",
+        "reason": "일과 시간 외 장거리 운전"
+      }
+    ]
+  }
+]

@@ -42,7 +42,7 @@
               <v-btn color="primary">돌아가기</v-btn>
             </router-link>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="checkPwd()">Regist</v-btn>
+            <v-btn color="primary" @click="checkPwd()">가입하기</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import LoginViewVue from "../../views/LoginView.vue";
+import { mapState } from "vuex";
+
 export default {
   computed: {
     ...mapState(["Leaders"])
