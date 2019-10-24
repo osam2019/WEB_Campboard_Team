@@ -5,11 +5,9 @@ import MainView from "../views/MainView.vue";
 import ClassBoard from "../views/ClassBoard.vue";
 import PointView from "../views/PointView.vue";
 import LeaderNoteView from "../views/LeaderNoteView.vue";
-//import DevView from "../views/DevView.vue";
 import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetter from "../views/HeartLetter.vue";
-import Devview from "../views/Devview.vue";
 
 Vue.use(VueRouter);
 
@@ -18,10 +16,14 @@ export const router = new VueRouter({
 
   routes: [
     {
+      path: "/", //redirect 바로 /news url로 access
+      name: "/",
+      redirect: "/loginview"
+    },
+    {
       // path: url 주소
       path: "/loginview",
       name: "loginview",
-
       // coomponent: url 주소로 갔을 때 표시될 컴포넌트
       // component: NewsView,
       component: LoginView
@@ -62,11 +64,6 @@ export const router = new VueRouter({
       path: "/heartletter",
       name: "heartletter",
       component: HeartLetter
-    },
-    {
-      path: "/devview",
-      name: "devview",
-      component: Devview
     }
   ]
 });

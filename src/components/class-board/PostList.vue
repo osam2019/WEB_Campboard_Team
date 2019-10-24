@@ -1,8 +1,8 @@
 <template>
-  <v-list>
+  <v-list color="transparent">
     <div class="d-flex flex-column-reverse">
-      <v-list-item class="mb-4" v-for="report in reports" :key="report.id">
-        <post-item :id="report.id" :report="report" :remove-report="removeReport" />
+      <v-list-item class="mb-4" v-for="post in sortedPosts" :key="post.id">
+        <post-item :post="post" :remove-post="removePost" />
       </v-list-item>
       <template v-if="!addToggle">
         <v-btn
@@ -19,7 +19,7 @@
         </v-btn>
       </template>
       <template v-else>
-        <post-new-item :toggle="toggle" :addReport="addReport"></post-new-item>
+        <post-new-item :toggle="toggle" :addPost="addPost"></post-new-item>
       </template>
     </div>
   </v-list>
@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       addToggle: false,
-      reportId: 4,
-      reports: [
+      postId: 4,
+      posts: [
         {
           id: 1,
           commentID: 3,
@@ -47,19 +47,6 @@ export default {
           name: "병장 정영훈",
           text: "OSAM 캠프 참여 실시",
           like: "24",
-          comments: [
-            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
-            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
-          ]
-        },
-        {
-          id: 2,
-          commentID: 3,
-          date: "2019-10-23",
-          title: "두번째 게시글 제목입니다",
-          name: "상병 강민석",
-          text: "OSAM 캠프 참여 실시",
-          like: "22",
           comments: [
             { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
             { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
@@ -77,6 +64,19 @@ export default {
             { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
             { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
           ]
+        },
+        {
+          id: 2,
+          commentID: 3,
+          date: "2019-10-23",
+          title: "두번째 게시글 제목입니다",
+          name: "상병 강민석",
+          text: "OSAM 캠프 참여 실시",
+          like: "22",
+          comments: [
+            { name: "일병 박경필", word: "축하드려요~~ㅎㅎ", id: 1 },
+            { name: "일병 김진석", word: "축하드려요~~ㅎㅎ", id: 2 }
+          ]
         }
       ]
     };
@@ -84,18 +84,31 @@ export default {
   computed: {
     account() {
       return this.$store.state.account;
+    },
+    sortedPosts() {
+      return [...this.posts].sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        if (dateA > dateB) {
+          return 1;
+        } else if (dateA < dateB) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
     }
   },
   methods: {
-    removeReport({ id }) {
-      this.reports.splice(this.reports.findIndex(r => r.id === id), 1);
+    removePost({ id }) {
+      this.posts.splice(this.posts.findIndex(p => p.id === id), 1);
     },
     toggle() {
       this.addToggle = !this.addToggle;
     },
-    addReport({ title, text, like }) {
-      this.reports.push({
-        id: this.reportId++,
+    addPost({ title, text, like }) {
+      this.posts.push({
+        id: this.postId++,
         date: new Date().toISOString().substring(0, 10),
         title,
         text,
