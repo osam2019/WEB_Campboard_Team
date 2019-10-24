@@ -15,7 +15,6 @@ export default new Vuex.Store({
     Leaders: USE_MOCK_UP_DATA ? accountDataJSON : [],
     isLogin: false,
     account: null,
-
     reportId: 1,
     squadMateId: 1,
     reports: [],

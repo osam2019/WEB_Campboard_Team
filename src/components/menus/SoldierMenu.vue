@@ -30,7 +30,8 @@ export default {
         { text: "중대근무 일정", icon: "mdi-check-circle", to: "checkduty" },
         { text: "상벌점 현황", icon: "mdi-upload", to: "PointView" },
         { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "heartletter" },
-        { text: "휴가 현황", icon: "mdi-cloud-upload", to: "Vacation" }
+        { text: "휴가 현황", icon: "mdi-cloud-upload", to: "Vacation" },
+        { text: "로그 아웃", icon: "mdi-account-remove", to: "loginview" }
       ]
     };
   }

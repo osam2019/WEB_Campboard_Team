@@ -20,11 +20,20 @@ export default {
   data() {
     return {
       items: [
+<<<<<<< HEAD
         { text: "부대 QnA", icon: "mdi-history", to: "questionboard" },
         { text: "중대근무 관리", icon: "mdi-check-circle", to: "checkduty" },
         { text: "상벌점 관리", icon: "mdi-upload", to: "PointView" },
         { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "heartletter" },
         { text: "휴가 현황", icon: "mdi-cloud-upload", to: "Vacation" }
+=======
+        { text: "부대 QnA", icon: "mdi-history", to: "/" },
+        { text: "중대근무 관리", icon: "mdi-check-circle", to: "/" },
+        { text: "상벌점 관리", icon: "mdi-upload", to: "/" },
+        { text: "마음의 소리함", icon: "mdi-cloud-upload", to: "/" },
+        { text: "휴가 현황", icon: "mdi-cloud-upload", to: "Vacation" },
+        { text: "로그 아웃", icon: "mdi-account-remove", to: "loginview" }
+>>>>>>> 9eea31394d08bb820fc2e6a3b19727ca8a2f94a7
       ]
     };
   }

@@ -9,9 +9,13 @@ import QuestionBoard from "../views/QuestionBoard.vue";
 import QuestionView from "../views/QuestionView.vue";
 import HeartLetterView from "../views/HeartLetterView.vue";
 import Vacation from "../views/VacationView.vue";
+<<<<<<< HEAD
 import RegisterView from "../views/RegisterView.vue";
 import DevPlanView from "../views/DevPlanView.vue";
 import NotFoundView from "../views/NotFoundView.vue";
+=======
+import Register from "../views/RegisterView.vue";
+>>>>>>> 9eea31394d08bb820fc2e6a3b19727ca8a2f94a7
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -24,9 +28,15 @@ export const router = new VueRouter({
       redirect: "/loginview"
     },
     {
+<<<<<<< HEAD
       path: "/register",
       name: "register",
       component: RegisterView
+=======
+      path: "/Regist",
+      name: "Regist",
+      component: Register
+>>>>>>> 9eea31394d08bb820fc2e6a3b19727ca8a2f94a7
     },
     {
       // path: url 주소
